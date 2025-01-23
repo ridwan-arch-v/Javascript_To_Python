@@ -1,0 +1,657 @@
+<html><head><style>/* Reset default margin dan padding */
+body, h1, h2, h3, p, table, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+/* Gaya umum untuk body */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5; /* Warna latar belakang abu-abu terang */
+    color: #333; /* Warna teks gelap */
+    padding: 20px;
+    transition: background-color 0.5s; /* Transisi latar belakang */
+}
+
+/* Gaya untuk heading */
+h1 {
+    font-size: 2.5em;
+    color: #2c2c2c; /* Warna abu-abu gelap */
+    margin-bottom: 20px;
+    text-align: center; /* Pusatkan judul */
+    animation: fadeIn 1s; /* Animasi muncul */
+}
+
+h2 {
+    font-size: 2em;
+    color: #4d4d4d; /* Warna abu-abu medium */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #b0b0b0; /* Garis bawah abu-abu */
+    padding-bottom: 5px;
+    transition: color 0.3s; /* Transisi warna */
+}
+
+h2:hover {
+    color: #1a1a1a; /* Warna lebih gelap saat hover */
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #666; /* Warna abu-abu lebih terang */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    animation: slideIn 0.5s; /* Animasi muncul */
+}
+
+/* Gaya untuk paragraf */
+p {
+    margin-bottom: 15px;
+    line-height: 1.8; /* Jarak antar baris yang lebih baik */
+    transition: transform 0.3s; /* Transisi saat hover */
+}
+
+p:hover {
+    transform: translateY(-2px); /* Efek angkat saat hover */
+}
+
+/* Gaya untuk tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Bayangan untuk tabel */
+    transition: box-shadow 0.3s; /* Transisi bayangan */
+}
+
+table:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Bayangan lebih dalam saat hover */
+}
+
+th, td {
+    border: 1px solid #ccc; /* Garis border abu-abu */
+    padding: 12px;
+    text-align: left;
+    transition: background-color 0.3s; /* Transisi warna latar belakang */
+}
+
+th {
+    background-color: #d9d9d9; /* Warna abu-abu terang untuk header */
+    color: #2c2c2c; /* Warna teks gelap */
+    text-transform: uppercase; /* Ubah teks menjadi huruf kapital */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Warna latar belakang untuk baris genap */
+}
+
+tr:hover {
+    background-color: #e0e0e0; /* Warna saat hover */
+}
+
+/* Gaya untuk kode */
+code {
+    background-color: #e8e8e8; /* Latar belakang abu-abu sangat terang */
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+pre {
+    background-color: #e8e8e8; /* Latar belakang abu-abu sangat terang */
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    border-left: 4px solid #b0b0b0; /* Garis samping abu-abu */
+}
+
+/* Gaya untuk list */
+ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Gaya untuk garis pemisah */
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc; /* Garis pemisah abu-abu */
+    margin: 20px 0;
+}
+
+/* Gaya untuk tombol (jika ada) */
+button {
+    background-color: #4d4d4d; /* Warna abu-abu medium */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transisi saat hover */
+}
+
+button:hover {
+    background-color: #333; /* Warna lebih gelap saat hover */
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Animasi untuk elemen */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Gaya untuk link */
+a {
+    color: #007bff; /* Warna biru untuk link */
+    text-decoration: none; /* Hilangkan garis bawah */
+    transition: color 0.3s; /* Transisi warna */
+}
+
+a:hover {
+    color: #0056b3; /* Warna lebih gelap saat hover */
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+/* Gaya untuk gambar */
+img {
+    max-width: 100%; /* Responsif */
+    height: auto; /* Menjaga rasio aspek */
+    border-radius: 8px; /* Sudut melengkung */
+    transition: transform 0.3s; /* Transisi saat hover */
+}
+
+img:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Gaya untuk footer */
+footer {
+    margin-top: 20px;
+    text-align: center; /* Pusatkan teks */
+    font-size: 0.9em; /* Ukuran font lebih kecil */
+    color: #666; /* Warna abu-abu lebih terang */
+}
+
+/* Gaya untuk animasi loading */
+.loader {
+    border: 8px solid #f3f3f3; /* Warna latar belakang */
+    border-top: 8px solid #3498db; /* Warna bagian atas */
+    border-radius: 50%; /* Bentuk lingkaran */
+    width: 40px; /* Lebar */
+    height: 40px; /* Tinggi */
+    animation: spin 1s linear infinite; /* Animasi berputar */
+}
+
+/* Animasi berputar */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Gaya untuk kartu */
+.card {
+    background-color: white; /* Warna latar belakang putih */
+    border-radius: 8px; /* Sudut melengkung */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk kartu */
+    margin: 20px 0; /* Margin atas dan bawah */
+    transition: transform 0.3s; /* Transisi saat hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efek angkat saat hover */
+}
+
+/* Gaya untuk badge */
+.badge {
+    display: inline-block; /* Tampilkan sebagai blok inline */
+    padding: 5px 10px; /* Padding */
+    border-radius: 12px; /* Sudut melengkung */
+    background-color: #007bff; /* Warna biru */
+    color: white; /* Warna teks putih */
+    font-size: 0.9em; /* Ukuran font lebih kecil */
+}
+
+/* Gaya untuk modal */
+.modal {
+    display: none; /* Tersembunyi secara default */
+    position: fixed; /* Posisi tetap */
+    z-index: 1000; /* Di atas elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%; /* Lebar penuh */
+    height: 100%; /* Tinggi penuh */
+    overflow: auto; /* Scroll jika diperlukan */
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan */
+}
+
+/* Gaya untuk konten modal */
+.modal-content {
+    background-color: white; /* Warna latar belakang putih */
+    margin: 15% auto; /* Margin atas dan bawah */
+    padding: 20px; /* Padding */
+    border: 1px solid #888; /* Garis border */
+    width: 80%; /* Lebar modal */
+    border-radius: 8px; /* Sudut melengkung */
+    animation: slideIn 0.5s; /* Animasi muncul */
+}
+
+/* Gaya untuk tombol tutup modal */
+.close {
+    color: #aaa; /* Warna abu-abu */
+    float: right; /* Posisi kanan */
+    font-size: 28px; /* Ukuran font */
+    font-weight: bold; /* Tebal */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Warna hitam saat hover */
+    text-decoration: none; /* Hilangkan garis bawah */
+    cursor: pointer; /* Kursor pointer */
+}
+
+/* Gaya untuk tooltip */
+.tooltip {
+    position: relative; /* Posisi relatif */
+    display: inline-block; /* Tampilkan sebagai blok inline */
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden; /* Tersembunyi secara default */
+    width: 120px; /* Lebar tooltip */
+    background-color: black; /* Warna latar belakang hitam */
+    color: #fff; /* Warna teks putih */
+    text-align: center; /* Pusatkan teks */
+    border-radius: 6px; /* Sudut melengkung */
+    padding: 5px; /* Padding */
+    position: absolute; /* Posisi absolut */
+    z-index: 1; /* Di atas elemen lain */
+    bottom: 125%; /* Posisi di atas elemen */
+    left: 50%; /* Pusatkan secara horizontal */
+    margin-left: -60px; /* Offset untuk pusat */
+    opacity: 0; /* Tersembunyi */
+    transition: opacity 0.3s; /* Transisi saat muncul */
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible; /* Tampilkan saat hover */
+    opacity: 1; /* Muncul */
+}
+
+/* Gaya untuk progress bar */
+.progress {
+    width: 100%; /* Lebar penuh */
+    background-color: #f3f3f3; /* Warna latar belakang */
+    border-radius: 5px; /* Sudut melengkung */
+    overflow: hidden; /* Sembunyikan overflow */
+}
+
+.progress .progress-bar {
+    height: 20px; /* Tinggi bar */
+    width: 0; /* Lebar awal */
+    background-color: #4caf50; /* Warna hijau */
+    transition: width 0.4s; /* Transisi lebar */
+}
+
+/* Gaya untuk breadcrumb */
+.breadcrumb {
+    display: flex; /* Flexbox untuk tata letak */
+    list-style: none; /* Hilangkan bullet */
+    padding: 10px 0; /* Padding atas dan bawah */
+}
+
+.breadcrumb li {
+    margin-right: 10px; /* Margin kanan */
+}
+
+.breadcrumb li a {
+    text-decoration: none; /* Hilangkan garis bawah */
+    color: #007bff; /* Warna biru */
+}
+
+.breadcrumb li a:hover {
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+/* Gaya untuk card header */
+.card-header {
+    background-color: #f7f7f7; /* Warna latar belakang terang */
+    padding: 10px; /* Padding */
+    border-bottom: 1px solid #ddd; /* Garis bawah */
+    font-weight: bold; /* Tebal */
+}
+
+/* Gaya untuk card body */
+.card-body {
+    padding: 15px; /* Padding */
+}
+
+/* Gaya untuk card footer */
+.card-footer {
+    background-color: #f7f7f7; /* Warna latar belakang terang */
+    padding: 10px; /* Padding */
+    text-align: right; /* Rata kanan */
+}
+
+/* Gaya untuk alert */
+.alert {
+    padding: 15px; /* Padding */
+    margin-bottom: 20px; /* Margin bawah */
+    border: 1px solid transparent; /* Border transparan */
+    border-radius: 4px; /* Sudut melengkung */
+}
+
+.alert-success {
+    color: #155724; /* Warna teks hijau */
+    background-color: #d4edda; /* Warna latar belakang hijau muda */
+    border-color: #c3e6cb; /* Warna border hijau */
+}
+
+.alert-danger {
+    color: #721c24; /* Warna teks merah */
+    background-color: #f8d7da; /* Warna latar belakang merah muda */
+    border-color: #f5c6cb; /* Warna border merah */
+}
+/* Gaya untuk navbar */
+.navbar {
+    background-color: #333; /* Warna latar belakang navbar */
+    overflow: hidden; /* Sembunyikan overflow */
+}
+
+.navbar a {
+    float: left; /* Posisi kiri */
+    display: block; /* Tampilkan sebagai blok */
+    color: white; /* Warna teks putih */
+    text-align: center; /* Pusatkan teks */
+    padding: 14px 16px; /* Padding */
+    text-decoration: none; /* Hilangkan garis bawah */
+    transition: background-color 0.3s; /* Transisi warna */
+}
+
+.navbar a:hover {
+    background-color: #575757; /* Warna lebih gelap saat hover */
+}
+
+/* Gaya untuk sidebar */
+.sidebar {
+    height: 100%; /* Tinggi penuh */
+    width: 250px; /* Lebar sidebar */
+    position: fixed; /* Posisi tetap */
+    z-index: 1; /* Di atas elemen lain */
+    top: 0; /* Posisi atas */
+    left: 0; /* Posisi kiri */
+    background-color: #f4f4f4; /* Warna latar belakang */
+    padding-top: 20px; /* Padding atas */
+}
+
+.sidebar a {
+    padding: 10px 15px; /* Padding */
+    text-decoration: none; /* Hilangkan garis bawah */
+    font-size: 1.1em; /* Ukuran font */
+    color: #333; /* Warna teks gelap */
+    display: block; /* Tampilkan sebagai blok */
+    transition: background-color 0.3s; /* Transisi warna */
+}
+
+.sidebar a:hover {
+    background-color: #ddd; /* Warna lebih terang saat hover */
+}
+
+/* Gaya untuk card image */
+.card-image {
+    width: 100%; /* Lebar penuh */
+    height: 200px; /* Tinggi tetap */
+    background-size: cover; /* Ukuran gambar */
+    background-position: center; /* Pusatkan gambar */
+    border-top-left-radius: 8px; /* Sudut melengkung */
+    border-top-right-radius: 8px; /* Sudut melengkung */
+}
+
+/* Gaya untuk form input */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%; /* Lebar penuh */
+    padding: 10px; /* Padding */
+    margin: 8px 0; /* Margin atas dan bawah */
+    border: 1px solid #ccc; /* Garis border */
+    border-radius: 4px; /* Sudut melengkung */
+    box-sizing: border-box; /* Menghitung padding dan border dalam lebar */
+    transition: border-color 0.3s; /* Transisi warna border */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: #007bff; /* Warna border saat fokus */
+}
+
+/* Gaya untuk checkbox */
+input[type="checkbox"] {
+    margin-right: 10px; /* Margin kanan */
+}
+
+/* Gaya untuk radio button */
+input[type="radio"] {
+    margin-right: 10px; /* Margin kanan */
+}
+
+/* Gaya untuk select dropdown */
+select {
+    width: 100%; /* Lebar penuh */
+    padding: 10px; /* Padding */
+    border: 1px solid #ccc; /* Garis border */
+    border-radius: 4px; /* Sudut melengkung */
+    transition: border-color 0.3s; /* Transisi warna border */
+}
+
+select:focus {
+    border-color: #007bff; /* Warna border saat fokus */
+}
+
+/* Gaya untuk pagination */
+.pagination {
+    display: flex; /* Flexbox untuk tata letak */
+    list-style: none; /* Hilangkan bullet */
+    padding: 0; /* Hilangkan padding */
+}
+
+.pagination li {
+    margin: 0 5px; /* Margin kiri dan kanan */
+}
+
+.pagination a {
+    text-decoration: none; /* Hilangkan garis bawah */
+    padding: 8px 12px; /* Padding */
+    border: 1px solid #007bff; /* Garis border biru */
+    color: #007bff; /* Warna teks biru */
+    border-radius: 4px; /* Sudut melengkung */
+    transition: background-color 0.3s, color 0.3s; /* Transisi warna */
+}
+
+.pagination a:hover {
+    background-color: #007bff; /* Warna biru saat hover */
+    color: white; /* Warna teks putih saat hover */
+}</style></head><body><h1 id="-panduan-lengkap-tipe-data-javascript">📚 Panduan Lengkap Tipe Data JavaScript</h1>
+<p>JavaScript memiliki 8 tipe data dasar yang dapat digunakan untuk menyimpan dan memanipulasi data. Memahami tipe data sangat penting karena setiap tipe data memiliki cara yang berbeda dalam beroperasi. Berikut adalah penjelasan lengkapnya!</p>
+<hr>
+<h2 id="1-string-">1. <strong>String 📝</strong></h2>
+<h3 id="1-1-apa-itu-string-">1.1 Apa itu String?</h3>
+<p>String adalah urutan karakter (teks) yang dapat berisi huruf, angka, simbol, atau spasi. String digunakan untuk menangani teks dalam aplikasi JavaScript.</p>
+<h3 id="1-2-sintaks-penulisan-string">1.2 Sintaks Penulisan String</h3>
+<p>String dapat dideklarasikan menggunakan tanda kutip tunggal (<code>&#39;</code>), kutip ganda (<code>&quot;</code>), atau backticks (<code>` </code>).</p>
+<h3 id="contoh-">Contoh:</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> name = <span class="hljs-string">"John Doe"</span>;        <span class="hljs-comment">// Menggunakan kutip ganda</span>
+<span class="hljs-keyword">let</span> city = <span class="hljs-string">'New York'</span>;        <span class="hljs-comment">// Menggunakan kutip tunggal</span>
+<span class="hljs-keyword">let</span> greeting = `Hello, ${name}!`;  <span class="hljs-comment">// Menggunakan backticks untuk interpolasi</span>
+</code></pre>
+<h3 id="1-3-karakter-khusus-dalam-string">1.3 Karakter Khusus dalam String</h3>
+<p>Karakter khusus seperti baris baru (<code>\n</code>), tab (<code>\t</code>), dan lain-lain dapat digunakan di dalam string.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> <span class="hljs-attr">text</span> = <span class="hljs-string">"Hello\nWorld"</span>;  // <span class="hljs-string">"Hello"</span> diikuti baris baru dan <span class="hljs-string">"World"</span>
+</code></pre>
+<h3 id="1-4-fungsi-dan-metode-string">1.4 Fungsi dan Metode String</h3>
+<p>JavaScript memiliki banyak metode untuk memanipulasi string seperti <code>toUpperCase()</code>, <code>substring()</code>, dan <code>split()</code>.</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">let</span> <span class="hljs-built_in">str</span> = <span class="hljs-string">"JavaScript"</span>;
+console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">str</span>.toUpperCase());  <span class="hljs-comment">// "JAVASCRIPT"</span>
+</code></pre>
+<hr>
+<h2 id="2-number-">2. <strong>Number 🔢</strong></h2>
+<h3 id="2-1-apa-itu-number-">2.1 Apa itu Number?</h3>
+<p>Tipe data Number digunakan untuk menyimpan nilai numerik. JavaScript menggunakan format floating-point untuk menyimpan angka.</p>
+<h3 id="2-2-deklarasi-number">2.2 Deklarasi Number</h3>
+<p>Angka dapat berupa integer (bilangan bulat) atau float (angka desimal).</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> age = <span class="hljs-number">25</span>;           <span class="hljs-comment">// Angka bulat</span>
+<span class="hljs-keyword">let</span> price = <span class="hljs-number">19.9</span><span class="hljs-number">9</span>;      <span class="hljs-comment">// Angka desimal</span>
+</code></pre>
+<h3 id="2-3-notasi-ilmiah">2.3 Notasi Ilmiah</h3>
+<p>Notasi ilmiah digunakan untuk menulis angka yang sangat besar atau kecil.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> bigNum = <span class="hljs-number">123</span>e<span class="hljs-number">5</span>;     <span class="hljs-comment">// 12300000</span>
+<span class="hljs-keyword">let</span> smallNum = <span class="hljs-number">123</span>e-<span class="hljs-number">5</span>;  <span class="hljs-comment">// 0.00123</span>
+</code></pre>
+<h3 id="2-4-operasi-matematika">2.4 Operasi Matematika</h3>
+<p>Kamu bisa melakukan operasi matematika menggunakan operator seperti <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, dan <code>%</code>.</p>
+<pre><code class="lang-javascript">let sum = <span class="hljs-number">10</span> + <span class="hljs-number">20</span>;    <span class="hljs-comment">// 30</span>
+let product = <span class="hljs-number">5</span> * <span class="hljs-number">5</span>;  <span class="hljs-comment">// 25</span>
+</code></pre>
+<hr>
+<h2 id="3-bigint-">3. <strong>BigInt 🧮</strong></h2>
+<h3 id="3-1-apa-itu-bigint-">3.1 Apa itu BigInt?</h3>
+<p>BigInt adalah tipe data yang digunakan untuk menyimpan angka yang lebih besar dari batas maksimal tipe Number.</p>
+<h3 id="3-2-cara-menggunakan-bigint">3.2 Cara Menggunakan BigInt</h3>
+<p>BigInt dapat dideklarasikan dengan menambahkan <code>n</code> di akhir angka.</p>
+<pre><code class="lang-javascript"><span class="hljs-attribute">let bigNumber</span> = 123456789012345678901234567890n;
+</code></pre>
+<h3 id="3-3-kapan-menggunakan-bigint-">3.3 Kapan Menggunakan BigInt?</h3>
+<p>Gunakan BigInt ketika kamu perlu bekerja dengan angka yang lebih besar dari yang dapat ditangani oleh tipe Number.</p>
+<hr>
+<h2 id="4-boolean-">4. <strong>Boolean ✅❌</strong></h2>
+<h3 id="4-1-apa-itu-boolean-">4.1 Apa itu Boolean?</h3>
+<p>Boolean hanya memiliki dua nilai: <code>true</code> dan <code>false</code>. Tipe data ini sering digunakan untuk pengkondisian dan pengecekan logika.</p>
+<h3 id="4-2-contoh-penggunaan-boolean">4.2 Contoh Penggunaan Boolean</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> isAdult = <span class="hljs-literal">true</span>;    <span class="hljs-comment">// Benar</span>
+<span class="hljs-keyword">let</span> isStudent = <span class="hljs-literal">false</span>; <span class="hljs-comment">// Salah</span>
+</code></pre>
+<h3 id="4-3-penggunaan-dalam-pengkondisian">4.3 Penggunaan dalam Pengkondisian</h3>
+<p>Boolean sering digunakan dalam pernyataan <code>if</code>, <code>else</code>, atau <code>while</code>.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">if</span> (isAdult) <span class="hljs-comment">{
+  console.log("You are an adult");
+}</span> <span class="hljs-keyword">else</span> <span class="hljs-comment">{
+  console.log("You are a minor");
+}</span>
+</code></pre>
+<hr>
+<h2 id="5-undefined-">5. <strong>Undefined ❓</strong></h2>
+<h3 id="5-1-apa-itu-undefined-">5.1 Apa itu Undefined?</h3>
+<p><code>undefined</code> adalah tipe data yang otomatis diberikan oleh JavaScript untuk variabel yang belum diinisialisasi.</p>
+<h3 id="5-2-penggunaan-undefined">5.2 Penggunaan Undefined</h3>
+<p>Jika kamu mendeklarasikan variabel tanpa memberi nilai, tipe data variabel tersebut adalah <code>undefined</code>.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> car;   <span class="hljs-comment">// Nilai default adalah undefined</span>
+console.<span class="hljs-built_in">log</span>(car);  <span class="hljs-comment">// undefined</span>
+</code></pre>
+<h3 id="5-3-mengosongkan-variabel">5.3 Mengosongkan Variabel</h3>
+<p>Kamu juga bisa mengosongkan variabel dengan memberikan nilai <code>undefined</code>.</p>
+<pre><code class="lang-javascript">let person = <span class="hljs-string">"John"</span><span class="hljs-comment">;</span>
+<span class="hljs-attribute">person</span> = undefined<span class="hljs-comment">;  // Variabel person kini memiliki nilai undefined</span>
+</code></pre>
+<hr>
+<h2 id="6-null-">6. <strong>Null 🕳</strong></h2>
+<h3 id="6-1-apa-itu-null-">6.1 Apa itu Null?</h3>
+<p><code>null</code> adalah nilai yang digunakan untuk menunjukkan bahwa variabel tidak merujuk ke objek apapun.</p>
+<h3 id="6-2-penggunaan-null">6.2 Penggunaan Null</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> person = <span class="hljs-built_in">null</span>;  <span class="hljs-comment">// Tidak ada objek yang diberikan</span>
+console.<span class="hljs-built_in">log</span>(person); <span class="hljs-comment">// null</span>
+</code></pre>
+<h3 id="6-3-perbedaan-antara-null-dan-undefined">6.3 Perbedaan antara Null dan Undefined</h3>
+<ul>
+<li><code>undefined</code> berarti variabel belum diinisialisasi.</li>
+<li><code>null</code> berarti variabel secara eksplisit diset ke nilai kosong.</li>
+</ul>
+<hr>
+<h2 id="7-symbol-">7. <strong>Symbol ⚡</strong></h2>
+<h3 id="7-1-apa-itu-symbol-">7.1 Apa itu Symbol?</h3>
+<p><code>Symbol</code> adalah tipe data yang digunakan untuk membuat nilai unik yang tidak akan pernah sama, bahkan jika deskripsinya sama.</p>
+<h3 id="7-2-cara-menggunakan-symbol">7.2 Cara Menggunakan Symbol</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> sym1 = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">'description'</span>);
+<span class="hljs-keyword">let</span> sym2 = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">'description'</span>);
+<span class="hljs-built_in">console</span>.log(sym1 === sym2);  <span class="hljs-comment">// false, meskipun deskripsinya sama</span>
+</code></pre>
+<h3 id="7-3-penggunaan-symbol">7.3 Penggunaan Symbol</h3>
+<p>Symbol sering digunakan untuk membuat kunci objek yang unik atau sebagai nilai konstan yang tidak berubah.</p>
+<hr>
+<h2 id="8-object-">8. <strong>Object 🧑‍💻</strong></h2>
+<h3 id="8-1-apa-itu-object-">8.1 Apa itu Object?</h3>
+<p>Objek adalah tipe data yang digunakan untuk menyimpan koleksi data dalam pasangan key-value. Objek bisa menyimpan berbagai tipe data termasuk fungsi, array, dan objek lain.</p>
+<h3 id="8-2-cara-membuat-object">8.2 Cara Membuat Object</h3>
+<pre><code class="lang-javascript">const person = {
+<span class="hljs-symbol">  firstName:</span> <span class="hljs-string">"John"</span>,
+<span class="hljs-symbol">  lastName:</span> <span class="hljs-string">"Doe"</span>,
+<span class="hljs-symbol">  age:</span> <span class="hljs-number">50</span>,
+<span class="hljs-symbol">  eyeColor:</span> <span class="hljs-string">"blue"</span>
+};
+</code></pre>
+<h3 id="8-3-menambah-dan-mengakses-properti-objek">8.3 Menambah dan Mengakses Properti Objek</h3>
+<pre><code class="lang-javascript">person.country = <span class="hljs-string">"USA"</span>; <span class="hljs-comment">// Menambahkan properti baru</span>
+console.<span class="hljs-built_in">log</span>(person.firstName);  <span class="hljs-comment">// Akses properti</span>
+</code></pre>
+<hr>
+<h2 id="9-array-">9. <strong>Array</strong></h2>
+<h3 id="9-1-apa-itu-array-">9.1 Apa itu Array?</h3>
+<p>Array adalah tipe data khusus dalam JavaScript yang digunakan untuk menyimpan koleksi data dalam indeks numerik.</p>
+<h3 id="9-2-deklarasi-dan-akses-array">9.2 Deklarasi dan Akses Array</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> colors = [<span class="hljs-string">"Red"</span>, <span class="hljs-string">"Green"</span>, <span class="hljs-string">"Blue"</span>];
+console.<span class="hljs-built_in">log</span>(colors[<span class="hljs-number">0</span>]);  <span class="hljs-comment">// "Red"</span>
+</code></pre>
+<h3 id="9-3-array-multidimensional">9.3 Array Multidimensional</h3>
+<p>Array dalam array, yang disebut sebagai array multidimensi, digunakan untuk menyimpan data dalam bentuk tabel.</p>
+<pre><code class="lang-javascript">const matrix = [[1, 2], [3, 4], [5, 6]];
+console.log(matrix[<span class="hljs-string">1</span>][<span class="hljs-symbol">0</span>]);  // 3
+</code></pre>
+<hr>
+<h2 id="10-date-">10. <strong>Date</strong></h2>
+<h3 id="10-1-apa-itu-date-">10.1 Apa itu Date?</h3>
+<p>Objek <code>Date</code> digunakan untuk menangani tanggal dan waktu dalam JavaScript.</p>
+<h3 id="10-2-cara-membuat-date">10.2 Cara Membuat Date</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> today = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(); <span class="hljs-comment">// Mengambil tanggal dan waktu saat ini</span>
+<span class="hljs-keyword">let</span> specificDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">"2022-01-01"</span>); <span class="hljs-comment">// Tanggal tertentu</span>
+</code></pre>
+<h3 id="10-3-metode-date">10.3 Metode Date</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> <span class="hljs-built_in">date</span> = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">date</span>.getFullYear());  <span class="hljs-comment">// Mengambil tahun</span>
+console.<span class="hljs-built_in">log</span>(<span class="hljs-built_in">date</span>.getMonth());     <span class="hljs-comment">// Mengambil bulan (0 - 11)</span>
+</code></pre>
+<hr>
+<h2 id="11-typeof-operator-">11. <strong><code>typeof</code> Operator 🔍</strong></h2>
+<h3 id="11-1-apa-itu-typeof-">11.1 Apa itu <code>typeof</code>?</h3>
+<p>Operator <code>typeof</code> digunakan untuk mengetahui tipe data dari sebuah variabel.</p>
+<h3 id="11-2-contoh-penggunaan">11.2 Contoh Penggunaan</h3>
+<pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-string">"John"</span>);  <span class="hljs-comment">// string</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-number">25</span>);      <span class="hljs-comment">// number</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-literal">true</span>);    <span class="hljs-comment">// boolean</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> {});      <span class="hljs-comment">// object</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span>); <span class="hljs-comment">// undefined</span>
+</code></pre>
+<hr>
+<h2 id="kesimpulan-">Kesimpulan 🎉</h2>
+<p>Tipe data di JavaScript sangat penting dalam pemrograman. Memahami tipe data ini akan membantu kamu dalam menulis kode yang lebih efisien dan menghindari kesalahan dalam pengoperasian variabel. Gunakan tipe data yang tepat untuk tugas yang sesuai!</p>
+<hr>
+<h2 id="penutup-">Penutup 🎊</h2>
+<p>Terus eksplorasi lebih dalam mengenai tipe data dan fungsi lainnya dalam JavaScript untuk meningkatkan kemampuan pengkodeanmu. JavaScript adalah bahasa yang sangat fleksibel dan powerful!</p>
+</body></html>

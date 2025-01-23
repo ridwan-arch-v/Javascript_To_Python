@@ -1,0 +1,720 @@
+<html><head><style>/* Reset default margin dan padding */
+body, h1, h2, h3, p, table, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+/* Gaya umum untuk body */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5; /* Warna latar belakang abu-abu terang */
+    color: #333; /* Warna teks gelap */
+    padding: 20px;
+    transition: background-color 0.5s; /* Transisi latar belakang */
+}
+
+/* Gaya untuk heading */
+h1 {
+    font-size: 2.5em;
+    color: #2c2c2c; /* Warna abu-abu gelap */
+    margin-bottom: 20px;
+    text-align: center; /* Pusatkan judul */
+    animation: fadeIn 1s; /* Animasi muncul */
+}
+
+h2 {
+    font-size: 2em;
+    color: #4d4d4d; /* Warna abu-abu medium */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #b0b0b0; /* Garis bawah abu-abu */
+    padding-bottom: 5px;
+    transition: color 0.3s; /* Transisi warna */
+}
+
+h2:hover {
+    color: #1a1a1a; /* Warna lebih gelap saat hover */
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #666; /* Warna abu-abu lebih terang */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    animation: slideIn 0.5s; /* Animasi muncul */
+}
+
+/* Gaya untuk paragraf */
+p {
+    margin-bottom: 15px;
+    line-height: 1.8; /* Jarak antar baris yang lebih baik */
+    transition: transform 0.3s; /* Transisi saat hover */
+}
+
+p:hover {
+    transform: translateY(-2px); /* Efek angkat saat hover */
+}
+
+/* Gaya untuk tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Bayangan untuk tabel */
+    transition: box-shadow 0.3s; /* Transisi bayangan */
+}
+
+table:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Bayangan lebih dalam saat hover */
+}
+
+th, td {
+    border: 1px solid #ccc; /* Garis border abu-abu */
+    padding: 12px;
+    text-align: left;
+    transition: background-color 0.3s; /* Transisi warna latar belakang */
+}
+
+th {
+    background-color: #d9d9d9; /* Warna abu-abu terang untuk header */
+    color: #2c2c2c; /* Warna teks gelap */
+    text-transform: uppercase; /* Ubah teks menjadi huruf kapital */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Warna latar belakang untuk baris genap */
+}
+
+tr:hover {
+    background-color: #e0e0e0; /* Warna saat hover */
+}
+
+/* Gaya untuk kode */
+code {
+    background-color: #e8e8e8; /* Latar belakang abu-abu sangat terang */
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+pre {
+    background-color: #e8e8e8; /* Latar belakang abu-abu sangat terang */
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    border-left: 4px solid #b0b0b0; /* Garis samping abu-abu */
+}
+
+/* Gaya untuk list */
+ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Gaya untuk garis pemisah */
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc; /* Garis pemisah abu-abu */
+    margin: 20px 0;
+}
+
+/* Gaya untuk tombol (jika ada) */
+button {
+    background-color: #4d4d4d; /* Warna abu-abu medium */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transisi saat hover */
+}
+
+button:hover {
+    background-color: #333; /* Warna lebih gelap saat hover */
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Animasi untuk elemen */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Gaya untuk link */
+a {
+    color: #007bff; /* Warna biru untuk link */
+    text-decoration: none; /* Hilangkan garis bawah */
+    transition: color 0.3s; /* Transisi warna */
+}
+
+a:hover {
+    color: #0056b3; /* Warna lebih gelap saat hover */
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+/* Gaya untuk gambar */
+img {
+    max-width: 100%; /* Responsif */
+    height: auto; /* Menjaga rasio aspek */
+    border-radius: 8px; /* Sudut melengkung */
+    transition: transform 0.3s; /* Transisi saat hover */
+}
+
+img:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Gaya untuk footer */
+footer {
+    margin-top: 20px;
+    text-align: center; /* Pusatkan teks */
+    font-size: 0.9em; /* Ukuran font lebih kecil */
+    color: #666; /* Warna abu-abu lebih terang */
+}
+
+/* Gaya untuk animasi loading */
+.loader {
+    border: 8px solid #f3f3f3; /* Warna latar belakang */
+    border-top: 8px solid #3498db; /* Warna bagian atas */
+    border-radius: 50%; /* Bentuk lingkaran */
+    width: 40px; /* Lebar */
+    height: 40px; /* Tinggi */
+    animation: spin 1s linear infinite; /* Animasi berputar */
+}
+
+/* Animasi berputar */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Gaya untuk kartu */
+.card {
+    background-color: white; /* Warna latar belakang putih */
+    border-radius: 8px; /* Sudut melengkung */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk kartu */
+    margin: 20px 0; /* Margin atas dan bawah */
+    transition: transform 0.3s; /* Transisi saat hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efek angkat saat hover */
+}
+
+/* Gaya untuk badge */
+.badge {
+    display: inline-block; /* Tampilkan sebagai blok inline */
+    padding: 5px 10px; /* Padding */
+    border-radius: 12px; /* Sudut melengkung */
+    background-color: #007bff; /* Warna biru */
+    color: white; /* Warna teks putih */
+    font-size: 0.9em; /* Ukuran font lebih kecil */
+}
+
+/* Gaya untuk modal */
+.modal {
+    display: none; /* Tersembunyi secara default */
+    position: fixed; /* Posisi tetap */
+    z-index: 1000; /* Di atas elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%; /* Lebar penuh */
+    height: 100%; /* Tinggi penuh */
+    overflow: auto; /* Scroll jika diperlukan */
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan */
+}
+
+/* Gaya untuk konten modal */
+.modal-content {
+    background-color: white; /* Warna latar belakang putih */
+    margin: 15% auto; /* Margin atas dan bawah */
+    padding: 20px; /* Padding */
+    border: 1px solid #888; /* Garis border */
+    width: 80%; /* Lebar modal */
+    border-radius: 8px; /* Sudut melengkung */
+    animation: slideIn 0.5s; /* Animasi muncul */
+}
+
+/* Gaya untuk tombol tutup modal */
+.close {
+    color: #aaa; /* Warna abu-abu */
+    float: right; /* Posisi kanan */
+    font-size: 28px; /* Ukuran font */
+    font-weight: bold; /* Tebal */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Warna hitam saat hover */
+    text-decoration: none; /* Hilangkan garis bawah */
+    cursor: pointer; /* Kursor pointer */
+}
+
+/* Gaya untuk tooltip */
+.tooltip {
+    position: relative; /* Posisi relatif */
+    display: inline-block; /* Tampilkan sebagai blok inline */
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden; /* Tersembunyi secara default */
+    width: 120px; /* Lebar tooltip */
+    background-color: black; /* Warna latar belakang hitam */
+    color: #fff; /* Warna teks putih */
+    text-align: center; /* Pusatkan teks */
+    border-radius: 6px; /* Sudut melengkung */
+    padding: 5px; /* Padding */
+    position: absolute; /* Posisi absolut */
+    z-index: 1; /* Di atas elemen lain */
+    bottom: 125%; /* Posisi di atas elemen */
+    left: 50%; /* Pusatkan secara horizontal */
+    margin-left: -60px; /* Offset untuk pusat */
+    opacity: 0; /* Tersembunyi */
+    transition: opacity 0.3s; /* Transisi saat muncul */
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible; /* Tampilkan saat hover */
+    opacity: 1; /* Muncul */
+}
+
+/* Gaya untuk progress bar */
+.progress {
+    width: 100%; /* Lebar penuh */
+    background-color: #f3f3f3; /* Warna latar belakang */
+    border-radius: 5px; /* Sudut melengkung */
+    overflow: hidden; /* Sembunyikan overflow */
+}
+
+.progress .progress-bar {
+    height: 20px; /* Tinggi bar */
+    width: 0; /* Lebar awal */
+    background-color: #4caf50; /* Warna hijau */
+    transition: width 0.4s; /* Transisi lebar */
+}
+
+/* Gaya untuk breadcrumb */
+.breadcrumb {
+    display: flex; /* Flexbox untuk tata letak */
+    list-style: none; /* Hilangkan bullet */
+    padding: 10px 0; /* Padding atas dan bawah */
+}
+
+.breadcrumb li {
+    margin-right: 10px; /* Margin kanan */
+}
+
+.breadcrumb li a {
+    text-decoration: none; /* Hilangkan garis bawah */
+    color: #007bff; /* Warna biru */
+}
+
+.breadcrumb li a:hover {
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+/* Gaya untuk card header */
+.card-header {
+    background-color: #f7f7f7; /* Warna latar belakang terang */
+    padding: 10px; /* Padding */
+    border-bottom: 1px solid #ddd; /* Garis bawah */
+    font-weight: bold; /* Tebal */
+}
+
+/* Gaya untuk card body */
+.card-body {
+    padding: 15px; /* Padding */
+}
+
+/* Gaya untuk card footer */
+.card-footer {
+    background-color: #f7f7f7; /* Warna latar belakang terang */
+    padding: 10px; /* Padding */
+    text-align: right; /* Rata kanan */
+}
+
+/* Gaya untuk alert */
+.alert {
+    padding: 15px; /* Padding */
+    margin-bottom: 20px; /* Margin bawah */
+    border: 1px solid transparent; /* Border transparan */
+    border-radius: 4px; /* Sudut melengkung */
+}
+
+.alert-success {
+    color: #155724; /* Warna teks hijau */
+    background-color: #d4edda; /* Warna latar belakang hijau muda */
+    border-color: #c3e6cb; /* Warna border hijau */
+}
+
+.alert-danger {
+    color: #721c24; /* Warna teks merah */
+    background-color: #f8d7da; /* Warna latar belakang merah muda */
+    border-color: #f5c6cb; /* Warna border merah */
+}
+/* Gaya untuk navbar */
+.navbar {
+    background-color: #333; /* Warna latar belakang navbar */
+    overflow: hidden; /* Sembunyikan overflow */
+}
+
+.navbar a {
+    float: left; /* Posisi kiri */
+    display: block; /* Tampilkan sebagai blok */
+    color: white; /* Warna teks putih */
+    text-align: center; /* Pusatkan teks */
+    padding: 14px 16px; /* Padding */
+    text-decoration: none; /* Hilangkan garis bawah */
+    transition: background-color 0.3s; /* Transisi warna */
+}
+
+.navbar a:hover {
+    background-color: #575757; /* Warna lebih gelap saat hover */
+}
+
+/* Gaya untuk sidebar */
+.sidebar {
+    height: 100%; /* Tinggi penuh */
+    width: 250px; /* Lebar sidebar */
+    position: fixed; /* Posisi tetap */
+    z-index: 1; /* Di atas elemen lain */
+    top: 0; /* Posisi atas */
+    left: 0; /* Posisi kiri */
+    background-color: #f4f4f4; /* Warna latar belakang */
+    padding-top: 20px; /* Padding atas */
+}
+
+.sidebar a {
+    padding: 10px 15px; /* Padding */
+    text-decoration: none; /* Hilangkan garis bawah */
+    font-size: 1.1em; /* Ukuran font */
+    color: #333; /* Warna teks gelap */
+    display: block; /* Tampilkan sebagai blok */
+    transition: background-color 0.3s; /* Transisi warna */
+}
+
+.sidebar a:hover {
+    background-color: #ddd; /* Warna lebih terang saat hover */
+}
+
+/* Gaya untuk card image */
+.card-image {
+    width: 100%; /* Lebar penuh */
+    height: 200px; /* Tinggi tetap */
+    background-size: cover; /* Ukuran gambar */
+    background-position: center; /* Pusatkan gambar */
+    border-top-left-radius: 8px; /* Sudut melengkung */
+    border-top-right-radius: 8px; /* Sudut melengkung */
+}
+
+/* Gaya untuk form input */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%; /* Lebar penuh */
+    padding: 10px; /* Padding */
+    margin: 8px 0; /* Margin atas dan bawah */
+    border: 1px solid #ccc; /* Garis border */
+    border-radius: 4px; /* Sudut melengkung */
+    box-sizing: border-box; /* Menghitung padding dan border dalam lebar */
+    transition: border-color 0.3s; /* Transisi warna border */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: #007bff; /* Warna border saat fokus */
+}
+
+/* Gaya untuk checkbox */
+input[type="checkbox"] {
+    margin-right: 10px; /* Margin kanan */
+}
+
+/* Gaya untuk radio button */
+input[type="radio"] {
+    margin-right: 10px; /* Margin kanan */
+}
+
+/* Gaya untuk select dropdown */
+select {
+    width: 100%; /* Lebar penuh */
+    padding: 10px; /* Padding */
+    border: 1px solid #ccc; /* Garis border */
+    border-radius: 4px; /* Sudut melengkung */
+    transition: border-color 0.3s; /* Transisi warna border */
+}
+
+select:focus {
+    border-color: #007bff; /* Warna border saat fokus */
+}
+
+/* Gaya untuk pagination */
+.pagination {
+    display: flex; /* Flexbox untuk tata letak */
+    list-style: none; /* Hilangkan bullet */
+    padding: 0; /* Hilangkan padding */
+}
+
+.pagination li {
+    margin: 0 5px; /* Margin kiri dan kanan */
+}
+
+.pagination a {
+    text-decoration: none; /* Hilangkan garis bawah */
+    padding: 8px 12px; /* Padding */
+    border: 1px solid #007bff; /* Garis border biru */
+    color: #007bff; /* Warna teks biru */
+    border-radius: 4px; /* Sudut melengkung */
+    transition: background-color 0.3s, color 0.3s; /* Transisi warna */
+}
+
+.pagination a:hover {
+    background-color: #007bff; /* Warna biru saat hover */
+    color: white; /* Warna teks putih saat hover */
+}</style></head><body><h1 id="variabel-dan-data-type">Variabel Dan Data Type</h1>
+<hr>
+<p>apa itu variabel dan data type di javascript ?
+jadi variabel itu adalah tempat untuk menyimpan data
+nah di javascript itu variabel bisa di buat dengan 4 cara</p>
+<p>-Secara otomatis
+-Menggunakan<code>var</code>
+-Menggunakan<code>let</code>
+-Menggunakan<code>const</code></p>
+<hr>
+<h2 id="variabel-yang-di-declarasikan-secara-otomatis">Variabel yang di declarasikan secara otomatis</h2>
+<pre><code class="lang-javascript">x = <span class="hljs-number">10</span>;
+y = <span class="hljs-number">5</span>;
+z = x + y;
+console.log(z) <span class="hljs-comment">//Output nya adalah 10</span>
+</code></pre>
+<h3 id="catatan">Catatan</h3>
+<blockquote>
+<p>Code Yang bagus harus selalu mendescripsikan variabel sebelum di gunakan</p>
+</blockquote>
+<h2 id="variabel-yang-di-deklarasikan-dengan-var-">Variabel Yang di Deklarasikan Dengan <code>var</code></h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> x = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">var</span> y = <span class="hljs-number">15</span>;
+<span class="hljs-keyword">var</span> z = y - x;
+<span class="hljs-built_in">console</span>.log(y); <span class="hljs-comment">//Output nya 5</span>
+</code></pre>
+<blockquote>
+<p><code>var</code> tidak di sarankan untuk di tulis di browser lama</p>
+</blockquote>
+<hr>
+<h2 id="contoh-pengunaan-let-">Contoh Pengunaan <code>let</code></h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> <span class="hljs-attr">a</span> = <span class="hljs-number">10</span>;
+<span class="hljs-keyword">let</span> <span class="hljs-attr">b</span> = <span class="hljs-number">15</span>;
+<span class="hljs-keyword">let</span> <span class="hljs-attr">c</span> = a + b;
+console.log(c); //output Nya <span class="hljs-number">25</span>
+</code></pre>
+<hr>
+<h2 id="contoh-penggunaan-const-">Contoh Penggunaan <code>const</code></h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> umur = <span class="hljs-number">17</span>;
+<span class="hljs-keyword">const</span> nama = <span class="hljs-string">"ridwan"</span>;
+<span class="hljs-keyword">const</span> saldo = <span class="hljs-string">"Rp"</span> + (<span class="hljs-number">28000</span>).toFixed(<span class="hljs-number">2</span>);
+console.<span class="hljs-built_in">log</span>(<span class="hljs-string">"halo nama saya"</span> + <span class="hljs-string">" "</span> + nama + <span class="hljs-string">" "</span> + <span class="hljs-string">"saya ber umur"</span> + <span class="hljs-string">" "</span> + umur + <span class="hljs-string">" "</span> + <span class="hljs-string">"tahun"</span> + <span class="hljs-string">" "</span> + <span class="hljs-string">"dan uang saya hanya"</span> + <span class="hljs-string">" "</span> + saldo);
+<span class="hljs-comment">//Output = halo nama saya ridwan saya ber umur 17 tahun dan uang saya hanya Rp28000.00</span>
+</code></pre>
+<hr>
+<h2 id="contoh-campuran-let-dan-const-">Contoh Campuran <code>let</code> dan <code>const</code></h2>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> hargaBarangKeSatu = <span class="hljs-number">20</span>;
+<span class="hljs-keyword">const</span> hargaBarangKeDua = <span class="hljs-number">14</span>;
+<span class="hljs-keyword">let</span> TotalBelanja = hargaBarangKeSatu + hargaBarangKeDua;
+<span class="hljs-built_in">console</span>.log(TotalBelanja);
+<span class="hljs-comment">//Output = 34</span>
+</code></pre>
+<p><strong>Catatan</strong>
+Kode tersebut dapat dieksekusi karena JavaScript menjalankan perintah secara langsung dan mengeksekusi operasi aritmatika di dalam variabel. Berikut penjelasan singkat:</p>
+<ol>
+<li><strong>Deklarasi Variabel</strong>: <code>const hargaBarangKeSatu = 20;</code> dan <code>const hargaBarangKeDua = 14;</code> mendeklarasikan dua variabel harga dengan nilai masing-masing 20 dan 14.</li>
+<li><strong>Operasi Penjumlahan</strong>: <code>TotalBelanja = hargaBarangKeSatu + hargaBarangKeDua;</code> menambahkan nilai <code>hargaBarangKeSatu</code> dan <code>hargaBarangKeDua</code> (20 + 14) dan menyimpannya dalam variabel <code>TotalBelanja</code>.</li>
+</ol>
+<blockquote>
+<p>JavaScript secara otomatis mengeksekusi kode ini tanpa masalah karena operasi penjumlahan adalah operasi dasar yang bisa dilakukan secara langsung pada angka</p>
+</blockquote>
+<hr>
+<h2 id="kapan-harus-pakai-var-let-const-">Kapan Harus Pakai <code>var</code> <code>let</code> <code>const</code> ?</h2>
+<ol>
+<li><p><strong><code>var</code></strong>:</p>
+<ul>
+<li><strong>Penggunaan</strong>: Digunakan untuk mendeklarasikan variabel dalam scope fungsi atau global.</li>
+<li><strong>Kapan digunakan</strong>: Sebaiknya <strong>hindari</strong> penggunaan <code>var</code>, kecuali jika kamu perlu mendukung kode legacy atau bekerja dengan scope global atau fungsi lama.</li>
+</ul>
+</li>
+<li><p><strong><code>let</code></strong>:</p>
+<ul>
+<li><strong>Penggunaan</strong>: Digunakan untuk mendeklarasikan variabel dengan <strong>block-scoped</strong> (terbatas hanya dalam block kode, seperti di dalam loop atau kondisional).</li>
+<li><strong>Kapan digunakan</strong>: Gunakan <code>let</code> untuk variabel yang <strong>nilainya bisa berubah</strong> setelah deklarasi.</li>
+</ul>
+</li>
+<li><p><strong><code>const</code></strong>:</p>
+<ul>
+<li><strong>Penggunaan</strong>: Digunakan untuk mendeklarasikan variabel yang <strong>nilainya tidak bisa diubah</strong> setelah deklarasi (konstan).</li>
+<li><strong>Kapan digunakan</strong>: Gunakan <code>const</code> untuk variabel yang <strong>nilainya tetap</strong>, seperti nilai konstanta atau referensi objek yang tidak berubah.</li>
+</ul>
+</li>
+<li><p><strong><code>var</code></strong>: Global / fungsi scope, hindari.</p>
+</li>
+<li><strong><code>let</code></strong>: Block scope, gunakan untuk variabel yang berubah.</li>
+<li><strong><code>const</code></strong>: Block scope, gunakan untuk variabel yang tidak berubah.</li>
+</ol>
+<hr>
+<h2 id="javascript-identifiers">JavaScript Identifiers</h2>
+<p>Variabel di JavaScript harus memiliki nama unik, disebut pengenal. Nama pengenal bisa pendek (seperti <code>x,</code> <code>y</code>) atau deskriptif (seperti usia, jumlah). Aturan penamaan:</p>
+<p>Nama boleh mengandung huruf, angka, garis bawah, dan dolar.
+Nama harus dimulai dengan huruf.
+Nama peka huruf besar/kecil.
+Kata kunci JavaScript tidak boleh digunakan sebagai nama variabel.</p>
+<hr>
+<h2 id="operator-penugasan">Operator Penugasan</h2>
+<p>di javascript tanda (=) itu ngak sama kayak operasi aljabar misal nya gini</p>
+<pre><code class="lang-javascript"><span class="hljs-selector-tag">a</span> = <span class="hljs-selector-tag">a</span> + <span class="hljs-number">7</span>
+</code></pre>
+<p><strong>Penjelasan</strong>
+Di javascript Kalau Kita Bikin Kode Kayak gitu maish bisa di operasikan sama sistem nya
+Kenapa bisa kayak gini? karna di javascript Tanda sama dengan (<code>=</code>) bukan digunakan untuk
+menyatakan kesamaan, melainkan untuk penugasan. Artinya <code>a =a + 7</code> itu cara baja nya gini</p>
+<blockquote>
+<p>&quot;ambil nilai a di tambah 7 dan simpan lagi di a&quot;</p>
+</blockquote>
+<p><strong>Tapi Kalau Di aljabar Bedalagi</strong>
+kalau di aljabar itu tanda (<code>=</code>) digunakan untuk menunjukkan bahwa dua sisi itu setara
+contoh nya gini:
+<code>a = a + 7</code> itu tidak masuk akal, karena kamu tidak bisa langsung bilang <code>a</code> sama dengan <code>a + 7</code>.</p>
+<p><strong>Catatan</strong>
+Operator &quot;sama dengan&quot; ditulis seperti <code>==</code> dalam JavaScript.</p>
+<hr>
+<h2 id="tipe-data-javascript">Tipe Data JavaScript</h2>
+<p>Variabel di JavaScript bisa menyimpan angka, seperti 100, atau teks, seperti &quot;John Doe&quot;. Teks disebut <code>string</code>, dan ditulis dengan tanda kutip ( <code>&#39;text&#39;</code>baik tunggal atau ganda <code>&quot;text&quot;</code> ). Angka ditulis tanpa tanda kutip. Kalau angka diletakkan dalam tanda kutip, maka dianggap sebagai teks, bukan angka.</p>
+<p>contoh:</p>
+<pre><code class="lang-javascript"><span class="hljs-attribute">const phoneNumbers</span> = 08172;
+<span class="hljs-attribute">const MyFirstName</span> = <span class="hljs-string">"ridwan"</span>;
+<span class="hljs-attribute">const MyLastName</span> = <span class="hljs-string">'khafidi'</span>;
+</code></pre>
+<hr>
+<h2 id="satu-pernyataan-banyak-variabel">Satu Pernyataan, Banyak Variabel</h2>
+<p>jadi kita bisa mendeklarasikan variabel atau pertanyaan
+mulai lah pernyataan dengan <code>let</code> dan pisahkan dengan <strong>koma</strong> dan tambahkan <strong>SPACE</strong>:</p>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">AboutMe</span>(<span class="hljs-params"></span>)</span>{
+    <span class="hljs-keyword">let</span> person = <span class="hljs-string">"ridwan"</span>, motorcycle = <span class="hljs-string">"BeatKarbu"</span>, Price = <span class="hljs-number">1000</span>;
+    <span class="hljs-keyword">return</span> { person, motorcycle, Price};
+}
+<span class="hljs-keyword">let</span> info = AboutMe()
+<span class="hljs-built_in">console</span>.log(info)
+</code></pre>
+<p>output =</p>
+<pre><code class="lang-bash">{ <span class="hljs-attribute">person</span>: <span class="hljs-string">'ridwan'</span>, motorcycle: <span class="hljs-string">'BeatKarbu'</span>, Price: <span class="hljs-number">1000</span> }
+</code></pre>
+<p><strong>Mendeklarasi variabel bisa dengan beberapa baris</strong>
+Contoh:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> <span class="hljs-attr">person</span> = <span class="hljs-string">"ridwan"</span>,
+<span class="hljs-attr">motorcycle</span> = <span class="hljs-string">"BeatKarbu"</span>,
+<span class="hljs-attr">Price</span> = <span class="hljs-number">1000</span>;
+// jangan lupa untuk memberi kan koma ( , ) setelah <span class="hljs-number">1</span> variabel
+</code></pre>
+<hr>
+<h2 id="value-undefined">Value = undefined</h2>
+<p>Jadi, <code>variabel</code> itu kayak tempat buat nyimpen sesuatu. Kadang, kita bikin tempat tapi belom diisi apa-apa, jadi dia masih kosong. Nah, kalo tempat itu kosong, nilainya namanya <code>undefined</code>.
+Contoh gampang: Misalnya, kamu punya kotak kosong (<code>variabel</code>) yang belom diisi barang (nilai <code>undefined</code>). Kalo nanti kamu isi kotak itu, baru deh ada barangnya.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> motorcycle;
+console.<span class="hljs-built_in">log</span>(motorcycle);
+<span class="hljs-comment">// Output nya: undefined</span>
+</code></pre>
+<hr>
+<h2 id="mendeklarasikan-ulang-variabel-javascript">Mendeklarasikan Ulang Variabel JavaScript</h2>
+<p>Jadi, kalau kamu mendeklarasikan ulang variabel yang pakai <code>var</code>, nilai variabel itu gak bakal hilang. Variabelnya tetap punya nilai yang lama.</p>
+<p>Contoh:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> motorcycle = <span class="hljs-string">"BeatKarbu"</span>;
+<span class="hljs-keyword">var</span> motorcycle; <span class="hljs-comment">// Deklarasi ulang</span>
+<span class="hljs-built_in">console</span>.log(motorcycle); <span class="hljs-comment">// Output: undefined</span>
+</code></pre>
+<p>Intinya, variabel yang pakai <code>var</code> bisa dideklarasikan ulang, tapi kalau gak diisi lagi, nilainya jadi <code>undefined</code>.</p>
+<blockquote>
+<p>Catatan: Kamu gak bisa mendeklarasikan ulang variabel yang pake let atau const.</p>
+</blockquote>
+<p>Contoh yang gak bakal berhasil:</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> motorcycle = <span class="hljs-string">"BeatKarbu"</span>;
+<span class="hljs-keyword">let</span> motorcycle;
+<span class="hljs-comment">// Gak boleh dideklarasi ulang</span>
+</code></pre>
+<p>Intinya, kalau pake <code>let</code> atau <code>const</code>, kamu gak bisa deklarasi ulang variabel yang sama.</p>
+<hr>
+<h2 id="aritmatika-javascript">Aritmatika JavaScript</h2>
+<p>Kamu bisa melakukan aritmatika dengan variabel di JavaScript, sama kayak di aljabar, pakai operator seperti = dan +.</p>
+<p>Contoh:</p>
+<pre><code class="lang-javascript">let x = <span class="hljs-number">5</span> + <span class="hljs-number">2</span> + <span class="hljs-number">3</span>; <span class="hljs-comment">// Hasilnya x = 10</span>
+</code></pre>
+<p>Intinya, kamu bisa langsung nambahin angka ke variabel pake operator matematika.
+Kamu juga bisa nambahin <code>string</code>, tapi nanti bakal digabungin gitu aja.</p>
+<p>Contoh:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> <span class="hljs-attr">x</span> = <span class="hljs-string">"John"</span> + <span class="hljs-string">" "</span> + <span class="hljs-string">"Doe"</span>;
+// Hasilnya: <span class="hljs-string">"John Doe"</span>
+</code></pre>
+<h3 id="coba-juga-ini">Coba juga ini</h3>
+<pre><code class="lang-js">let x = <span class="hljs-string">"5"</span> + <span class="hljs-number">2</span> + <span class="hljs-number">3</span>;
+<span class="hljs-comment">// Hasilnya: "523"</span>
+</code></pre>
+<p>Catatan: Kalo angka dimasukin ke <code>tanda kutip</code>, sisa angka bakal dianggap <code>string</code> dan digabungin.</p>
+<p>Sekarang coba ini:</p>
+<pre><code class="lang-js">let x = <span class="hljs-number">2</span> + <span class="hljs-number">3</span> + <span class="hljs-string">"5"</span>; <span class="hljs-comment">// Hasilnya: "55"</span>
+</code></pre>
+<p>Jadi, kalo ada <code>string</code> dan <code>angka</code>, <code>angka</code> bakal digabung jadi <code>string</code>.</p>
+<hr>
+<h2 id="tanda-dolar-javascript-">Tanda Dolar JavaScript $</h2>
+<p>Di JavaScript, kamu bisa pake tanda dolar <code>$</code> dalam nama <code>variabel</code>. Karena JavaScript nganggep dolar sebagai huruf, jadi <code>variabel</code> yang pake <code>$</code> tetep valid.</p>
+<p>Contoh:</p>
+<pre><code class="lang-js">let <span class="hljs-symbol">$</span> = <span class="hljs-string">"Hello World"</span>; <span class="hljs-comment">// Valid</span>
+let <span class="hljs-symbol">$</span><span class="hljs-symbol">$</span><span class="hljs-symbol">$</span> = <span class="hljs-number">2</span>;           <span class="hljs-comment">// Valid</span>
+let <span class="hljs-symbol">$</span>myMoney = <span class="hljs-number">5</span>;      <span class="hljs-comment">// Valid</span>
+</code></pre>
+<p>Pakai tanda dolar gak terlalu umum, tapi sering dipakai programmer profesional, khususnya di pustaka JavaScript.
+Misalnya di jQuery, $ dipakai untuk fungsi utama buat pilih elemen HTML. Contoh:</p>
+<pre><code class="lang-js"><span class="hljs-variable">$(</span><span class="hljs-string">"p"</span>);
+<span class="hljs-regexp">//</span> Pilih semua elemen &lt;p&gt;
+</code></pre>
+<p>Jadi, meskipun jarang dipakai, tanda dolar tetap valid di JavaScript.</p>
+<hr>
+<h2 id="garis-bawah-javascript-_-">Garis Bawah Javascript (<code>_</code>)</h2>
+<p>Di JavaScript, Ko bisa pake garis bawah (<code>_</code>) dalam nama <code>variabel</code>, karena JavaScript nganggep garis bawah sebagai huruf, jadi tetep valid.</p>
+<p>Contohnya:</p>
+<pre><code class="lang-js"><span class="hljs-keyword">let</span> <span class="hljs-number">_</span>lastName = <span class="hljs-string">"Johnson"</span>; <span class="hljs-comment">// Valid</span>
+<span class="hljs-keyword">let</span> <span class="hljs-number">_</span>x = <span class="hljs-number">2</span>;               <span class="hljs-comment">// Valid</span>
+<span class="hljs-keyword">let</span> <span class="hljs-number">_100</span> = <span class="hljs-number">5</span>;             <span class="hljs-comment">// Valid</span>
+</code></pre>
+<p>Pakai garis bawah gak terlalu umum dalam JavaScript, kayk beberapa programmer profesional sering pake itu buat tandain variabel yang &quot;<code>pribadi</code>&quot; atau &quot;<code>tersembunyi</code>&quot;, jadi orang lain gak gampang pake atau ubah variabel tersebut.</p>
+<hr>
+<h2 id="udah-sampe-bawah-nih-keren-banget-lo-">Udah sampe bawah nih? Keren banget lo! 😎🔥</h2>
+<h2 id="about-author">About Author</h2>
+<p><a href="https://github.com/ridwan-arch-v/Javascript_To_Python"><img src="https://img.shields.io/badge/Update-View%20Progres%20On%20Github-17A2B8?labelColor=1E3A8A&amp;style=for-the-badge&amp;logo=github&amp;logoColor=181717&amp;link=https://github.com/ridwan-arch-v/Javascript_To_Python" alt="Update "></a></p>
+<p><a href="buymeacoffee.com/ridwannn1iwanq"><img src="https://img.shields.io/badge/Support%20%F0%9F%92%AA-Buy%20Me%20A%20Coffre-AB886D?labelColor=FF851B&amp;style=for-the-badge&amp;logo=buymeacoffee&amp;logoColor=FFDD00&amp;link=buymeacoffee.com/ridwannn1iwanq" alt="Support 💪"></a></p>
+<p><a href="mailto:iwaniwanq15@gmail.com"><img src="https://img.shields.io/badge/Contac-Chat%20THe%20Author-FFFFDE?labelColor=0000FF&amp;style=for-the-badge&amp;logo=mailboxdotorg&amp;logoColor=76BB21&amp;link=mailto:iwaniwanq15@gmail.com" alt="Contac"></a></p>
+<p><a href="https://www.w3schools.com/js/js_variables.asp"><img src="https://img.shields.io/badge/Author%20Reference-W3SCHOOL-003366?labelColor=6C757D&amp;style=flat&amp;logo=w3schools&amp;logoColor=04AA6D&amp;logoWidth=25&amp;link=https://www.w3schools.com/js/js_variables.asp" alt="Author Reference "></a></p>
+<hr>
+<h2 id="lanjut-ke-materi-selanjut-nya">Lanjut Ke Materi selanjut nya</h2>
+<p><a href="https://github.com/ridwan-arch-v/Javascript_To_Python/blob/main/src/Dasar-Dasar-JavaScript/1.2-Tipe-Data.md"><img src="https://img.shields.io/badge/Next%20Materi%20To%20=%3E-Type%20Data-FFFFDE?labelColor=gray&amp;style=social&amp;logo=bookstack&amp;logoColor=00A4DE&amp;logoWidth=50&amp;link=https://github.com/ridwan-arch-v/Javascript_To_Python/blob/main/src/Dasar-Dasar-JavaScript/1.2-Tipe-Data.md" alt="Next Materi To =&gt;"></a></p>
+<h3 id="disclaimer">Disclaimer</h3>
+<ul>
+<li>Kalau lo nemu bug atau masalah, lo bisa bantu gue ya, atau kalo lo cuman pengen ngobrol juga gak masalah.  </li>
+<li>Thanks udah mampir ke sini 😁🔥  </li>
+</ul>
+<hr>
+</body></html>

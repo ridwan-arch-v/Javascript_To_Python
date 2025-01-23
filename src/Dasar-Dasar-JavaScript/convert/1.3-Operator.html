@@ -1,0 +1,990 @@
+<html><head><style>/* Reset default margin dan padding */
+body, h1, h2, h3, p, table, th, td {
+    margin: 0;
+    padding: 0;
+}
+
+/* Gaya umum untuk body */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5; /* Warna latar belakang abu-abu terang */
+    color: #333; /* Warna teks gelap */
+    padding: 20px;
+    transition: background-color 0.5s; /* Transisi latar belakang */
+}
+
+/* Gaya untuk heading */
+h1 {
+    font-size: 2.5em;
+    color: #2c2c2c; /* Warna abu-abu gelap */
+    margin-bottom: 20px;
+    text-align: center; /* Pusatkan judul */
+    animation: fadeIn 1s; /* Animasi muncul */
+}
+
+h2 {
+    font-size: 2em;
+    color: #4d4d4d; /* Warna abu-abu medium */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #b0b0b0; /* Garis bawah abu-abu */
+    padding-bottom: 5px;
+    transition: color 0.3s; /* Transisi warna */
+}
+
+h2:hover {
+    color: #1a1a1a; /* Warna lebih gelap saat hover */
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #666; /* Warna abu-abu lebih terang */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    animation: slideIn 0.5s; /* Animasi muncul */
+}
+
+/* Gaya untuk paragraf */
+p {
+    margin-bottom: 15px;
+    line-height: 1.8; /* Jarak antar baris yang lebih baik */
+    transition: transform 0.3s; /* Transisi saat hover */
+}
+
+p:hover {
+    transform: translateY(-2px); /* Efek angkat saat hover */
+}
+
+/* Gaya untuk tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Bayangan untuk tabel */
+    transition: box-shadow 0.3s; /* Transisi bayangan */
+}
+
+table:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Bayangan lebih dalam saat hover */
+}
+
+th, td {
+    border: 1px solid #ccc; /* Garis border abu-abu */
+    padding: 12px;
+    text-align: left;
+    transition: background-color 0.3s; /* Transisi warna latar belakang */
+}
+
+th {
+    background-color: #d9d9d9; /* Warna abu-abu terang untuk header */
+    color: #2c2c2c; /* Warna teks gelap */
+    text-transform: uppercase; /* Ubah teks menjadi huruf kapital */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Warna latar belakang untuk baris genap */
+}
+
+tr:hover {
+    background-color: #e0e0e0; /* Warna saat hover */
+}
+
+/* Gaya untuk kode */
+code {
+    background-color: #e8e8e8; /* Latar belakang abu-abu sangat terang */
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+pre {
+    background-color: #e8e8e8; /* Latar belakang abu-abu sangat terang */
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+    border-left: 4px solid #b0b0b0; /* Garis samping abu-abu */
+}
+
+/* Gaya untuk list */
+ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* Gaya untuk garis pemisah */
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc; /* Garis pemisah abu-abu */
+    margin: 20px 0;
+}
+
+/* Gaya untuk tombol (jika ada) */
+button {
+    background-color: #4d4d4d; /* Warna abu-abu medium */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Transisi saat hover */
+}
+
+button:hover {
+    background-color: #333; /* Warna lebih gelap saat hover */
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Animasi untuk elemen */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Gaya untuk link */
+a {
+    color: #007bff; /* Warna biru untuk link */
+    text-decoration: none; /* Hilangkan garis bawah */
+    transition: color 0.3s; /* Transisi warna */
+}
+
+a:hover {
+    color: #0056b3; /* Warna lebih gelap saat hover */
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+/* Gaya untuk gambar */
+img {
+    max-width: 100%; /* Responsif */
+    height: auto; /* Menjaga rasio aspek */
+    border-radius: 8px; /* Sudut melengkung */
+    transition: transform 0.3s; /* Transisi saat hover */
+}
+
+img:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+}
+
+/* Gaya untuk footer */
+footer {
+    margin-top: 20px;
+    text-align: center; /* Pusatkan teks */
+    font-size: 0.9em; /* Ukuran font lebih kecil */
+    color: #666; /* Warna abu-abu lebih terang */
+}
+
+/* Gaya untuk animasi loading */
+.loader {
+    border: 8px solid #f3f3f3; /* Warna latar belakang */
+    border-top: 8px solid #3498db; /* Warna bagian atas */
+    border-radius: 50%; /* Bentuk lingkaran */
+    width: 40px; /* Lebar */
+    height: 40px; /* Tinggi */
+    animation: spin 1s linear infinite; /* Animasi berputar */
+}
+
+/* Animasi berputar */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Gaya untuk kartu */
+.card {
+    background-color: white; /* Warna latar belakang putih */
+    border-radius: 8px; /* Sudut melengkung */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Bayangan untuk kartu */
+    margin: 20px 0; /* Margin atas dan bawah */
+    transition: transform 0.3s; /* Transisi saat hover */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efek angkat saat hover */
+}
+
+/* Gaya untuk badge */
+.badge {
+    display: inline-block; /* Tampilkan sebagai blok inline */
+    padding: 5px 10px; /* Padding */
+    border-radius: 12px; /* Sudut melengkung */
+    background-color: #007bff; /* Warna biru */
+    color: white; /* Warna teks putih */
+    font-size: 0.9em; /* Ukuran font lebih kecil */
+}
+
+/* Gaya untuk modal */
+.modal {
+    display: none; /* Tersembunyi secara default */
+    position: fixed; /* Posisi tetap */
+    z-index: 1000; /* Di atas elemen lain */
+    left: 0;
+    top: 0;
+    width: 100%; /* Lebar penuh */
+    height: 100%; /* Tinggi penuh */
+    overflow: auto; /* Scroll jika diperlukan */
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan */
+}
+
+/* Gaya untuk konten modal */
+.modal-content {
+    background-color: white; /* Warna latar belakang putih */
+    margin: 15% auto; /* Margin atas dan bawah */
+    padding: 20px; /* Padding */
+    border: 1px solid #888; /* Garis border */
+    width: 80%; /* Lebar modal */
+    border-radius: 8px; /* Sudut melengkung */
+    animation: slideIn 0.5s; /* Animasi muncul */
+}
+
+/* Gaya untuk tombol tutup modal */
+.close {
+    color: #aaa; /* Warna abu-abu */
+    float: right; /* Posisi kanan */
+    font-size: 28px; /* Ukuran font */
+    font-weight: bold; /* Tebal */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Warna hitam saat hover */
+    text-decoration: none; /* Hilangkan garis bawah */
+    cursor: pointer; /* Kursor pointer */
+}
+
+/* Gaya untuk tooltip */
+.tooltip {
+    position: relative; /* Posisi relatif */
+    display: inline-block; /* Tampilkan sebagai blok inline */
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden; /* Tersembunyi secara default */
+    width: 120px; /* Lebar tooltip */
+    background-color: black; /* Warna latar belakang hitam */
+    color: #fff; /* Warna teks putih */
+    text-align: center; /* Pusatkan teks */
+    border-radius: 6px; /* Sudut melengkung */
+    padding: 5px; /* Padding */
+    position: absolute; /* Posisi absolut */
+    z-index: 1; /* Di atas elemen lain */
+    bottom: 125%; /* Posisi di atas elemen */
+    left: 50%; /* Pusatkan secara horizontal */
+    margin-left: -60px; /* Offset untuk pusat */
+    opacity: 0; /* Tersembunyi */
+    transition: opacity 0.3s; /* Transisi saat muncul */
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible; /* Tampilkan saat hover */
+    opacity: 1; /* Muncul */
+}
+
+/* Gaya untuk progress bar */
+.progress {
+    width: 100%; /* Lebar penuh */
+    background-color: #f3f3f3; /* Warna latar belakang */
+    border-radius: 5px; /* Sudut melengkung */
+    overflow: hidden; /* Sembunyikan overflow */
+}
+
+.progress .progress-bar {
+    height: 20px; /* Tinggi bar */
+    width: 0; /* Lebar awal */
+    background-color: #4caf50; /* Warna hijau */
+    transition: width 0.4s; /* Transisi lebar */
+}
+
+/* Gaya untuk breadcrumb */
+.breadcrumb {
+    display: flex; /* Flexbox untuk tata letak */
+    list-style: none; /* Hilangkan bullet */
+    padding: 10px 0; /* Padding atas dan bawah */
+}
+
+.breadcrumb li {
+    margin-right: 10px; /* Margin kanan */
+}
+
+.breadcrumb li a {
+    text-decoration: none; /* Hilangkan garis bawah */
+    color: #007bff; /* Warna biru */
+}
+
+.breadcrumb li a:hover {
+    text-decoration: underline; /* Garis bawah saat hover */
+}
+
+/* Gaya untuk card header */
+.card-header {
+    background-color: #f7f7f7; /* Warna latar belakang terang */
+    padding: 10px; /* Padding */
+    border-bottom: 1px solid #ddd; /* Garis bawah */
+    font-weight: bold; /* Tebal */
+}
+
+/* Gaya untuk card body */
+.card-body {
+    padding: 15px; /* Padding */
+}
+
+/* Gaya untuk card footer */
+.card-footer {
+    background-color: #f7f7f7; /* Warna latar belakang terang */
+    padding: 10px; /* Padding */
+    text-align: right; /* Rata kanan */
+}
+
+/* Gaya untuk alert */
+.alert {
+    padding: 15px; /* Padding */
+    margin-bottom: 20px; /* Margin bawah */
+    border: 1px solid transparent; /* Border transparan */
+    border-radius: 4px; /* Sudut melengkung */
+}
+
+.alert-success {
+    color: #155724; /* Warna teks hijau */
+    background-color: #d4edda; /* Warna latar belakang hijau muda */
+    border-color: #c3e6cb; /* Warna border hijau */
+}
+
+.alert-danger {
+    color: #721c24; /* Warna teks merah */
+    background-color: #f8d7da; /* Warna latar belakang merah muda */
+    border-color: #f5c6cb; /* Warna border merah */
+}
+/* Gaya untuk navbar */
+.navbar {
+    background-color: #333; /* Warna latar belakang navbar */
+    overflow: hidden; /* Sembunyikan overflow */
+}
+
+.navbar a {
+    float: left; /* Posisi kiri */
+    display: block; /* Tampilkan sebagai blok */
+    color: white; /* Warna teks putih */
+    text-align: center; /* Pusatkan teks */
+    padding: 14px 16px; /* Padding */
+    text-decoration: none; /* Hilangkan garis bawah */
+    transition: background-color 0.3s; /* Transisi warna */
+}
+
+.navbar a:hover {
+    background-color: #575757; /* Warna lebih gelap saat hover */
+}
+
+/* Gaya untuk sidebar */
+.sidebar {
+    height: 100%; /* Tinggi penuh */
+    width: 250px; /* Lebar sidebar */
+    position: fixed; /* Posisi tetap */
+    z-index: 1; /* Di atas elemen lain */
+    top: 0; /* Posisi atas */
+    left: 0; /* Posisi kiri */
+    background-color: #f4f4f4; /* Warna latar belakang */
+    padding-top: 20px; /* Padding atas */
+}
+
+.sidebar a {
+    padding: 10px 15px; /* Padding */
+    text-decoration: none; /* Hilangkan garis bawah */
+    font-size: 1.1em; /* Ukuran font */
+    color: #333; /* Warna teks gelap */
+    display: block; /* Tampilkan sebagai blok */
+    transition: background-color 0.3s; /* Transisi warna */
+}
+
+.sidebar a:hover {
+    background-color: #ddd; /* Warna lebih terang saat hover */
+}
+
+/* Gaya untuk card image */
+.card-image {
+    width: 100%; /* Lebar penuh */
+    height: 200px; /* Tinggi tetap */
+    background-size: cover; /* Ukuran gambar */
+    background-position: center; /* Pusatkan gambar */
+    border-top-left-radius: 8px; /* Sudut melengkung */
+    border-top-right-radius: 8px; /* Sudut melengkung */
+}
+
+/* Gaya untuk form input */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%; /* Lebar penuh */
+    padding: 10px; /* Padding */
+    margin: 8px 0; /* Margin atas dan bawah */
+    border: 1px solid #ccc; /* Garis border */
+    border-radius: 4px; /* Sudut melengkung */
+    box-sizing: border-box; /* Menghitung padding dan border dalam lebar */
+    transition: border-color 0.3s; /* Transisi warna border */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border-color: #007bff; /* Warna border saat fokus */
+}
+
+/* Gaya untuk checkbox */
+input[type="checkbox"] {
+    margin-right: 10px; /* Margin kanan */
+}
+
+/* Gaya untuk radio button */
+input[type="radio"] {
+    margin-right: 10px; /* Margin kanan */
+}
+
+/* Gaya untuk select dropdown */
+select {
+    width: 100%; /* Lebar penuh */
+    padding: 10px; /* Padding */
+    border: 1px solid #ccc; /* Garis border */
+    border-radius: 4px; /* Sudut melengkung */
+    transition: border-color 0.3s; /* Transisi warna border */
+}
+
+select:focus {
+    border-color: #007bff; /* Warna border saat fokus */
+}
+
+/* Gaya untuk pagination */
+.pagination {
+    display: flex; /* Flexbox untuk tata letak */
+    list-style: none; /* Hilangkan bullet */
+    padding: 0; /* Hilangkan padding */
+}
+
+.pagination li {
+    margin: 0 5px; /* Margin kiri dan kanan */
+}
+
+.pagination a {
+    text-decoration: none; /* Hilangkan garis bawah */
+    padding: 8px 12px; /* Padding */
+    border: 1px solid #007bff; /* Garis border biru */
+    color: #007bff; /* Warna teks biru */
+    border-radius: 4px; /* Sudut melengkung */
+    transition: background-color 0.3s, color 0.3s; /* Transisi warna */
+}
+
+.pagination a:hover {
+    background-color: #007bff; /* Warna biru saat hover */
+    color: white; /* Warna teks putih saat hover */
+}</style></head><body><h1 id="-panduan-lengkap-operator-javascript">📚 Panduan Lengkap Operator JavaScript</h1>
+<p>Operator dalam JavaScript adalah simbol yang digunakan untuk melakukan operasi pada nilai atau variabel. Mari kita eksplorasi berbagai jenis operator dengan contoh yang mudah dipahami!</p>
+<h2 id="1-operator-aritmatika-">1. Operator Aritmatika ➕➖✖️➗</h2>
+<p>Operator aritmatika digunakan untuk melakukan perhitungan matematis. Berikut adalah operator aritmatika yang umum digunakan:</p>
+<table>
+<thead>
+<tr>
+<th>Oper</th>
+<th>Nama</th>
+<th>Contoh</th>
+<th>Hasil</th>
+<th>Penjelasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code></td>
+<td>Penjumlahan</td>
+<td><code>x = y + 2</code></td>
+<td><code>7</code></td>
+<td>Menambahkan 2 ke y (5 + 2 = 7)</td>
+</tr>
+<tr>
+<td><code>-</code></td>
+<td>Pengurangan</td>
+<td><code>x = y - 2</code></td>
+<td><code>3</code></td>
+<td>Mengurangi 2 dari y (5 - 2 = 3)</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Perkalian</td>
+<td><code>x = y * 2</code></td>
+<td><code>10</code></td>
+<td>Mengalikan y dengan 2 (5 * 2 = 10)</td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>Pembagian</td>
+<td><code>x = y / 2</code></td>
+<td><code>2.5</code></td>
+<td>Membagi y dengan 2 (5 / 2 = 2.5)</td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>Modulus</td>
+<td><code>x = y % 2</code></td>
+<td><code>1</code></td>
+<td>Sisa pembagian y dengan 2 (5 % 2 = 1)</td>
+</tr>
+<tr>
+<td><code>++</code></td>
+<td>Increment</td>
+<td><code>x = ++y</code></td>
+<td><code>6</code></td>
+<td>Menambah y sebelum digunakan</td>
+</tr>
+<tr>
+<td><code>--</code></td>
+<td>Decrement</td>
+<td><code>x = --y</code></td>
+<td><code>4</code></td>
+<td>Mengurangi y sebelum digunakan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contoh-sehari-hari">Contoh Sehari-hari</h3>
+<p>Bayangkan kamu memiliki 5 apel 🍏. Jika kamu membeli 2 apel lagi, berapa jumlah apelmu sekarang?</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> y = <span class="hljs-number">5</span>; <span class="hljs-comment">// jumlah apel</span>
+<span class="hljs-keyword">let</span> x = y + <span class="hljs-number">2</span>; <span class="hljs-comment">// membeli 2 apel</span>
+console.<span class="hljs-built_in">log</span>(x); <span class="hljs-comment">// 7</span>
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li><strong>Penjumlahan</strong>: Bayangkan menambah sesuatu ke dalam keranjang.</li>
+<li><strong>Pengurangan</strong>: Bayangkan mengeluarkan sesuatu dari keranjang.</li>
+<li><strong>Perkalian</strong>: Bayangkan membeli beberapa paket yang berisi banyak barang.</li>
+<li><strong>Pembagian</strong>: Bayangkan membagi pizza 🍕 dengan teman-teman.</li>
+</ul>
+<hr>
+<h2 id="2-operator-penugasan-">2. Operator Penugasan 📝</h2>
+<p>Operator penugasan digunakan untuk menetapkan nilai ke variabel.</p>
+<table>
+<thead>
+<tr>
+<th>Oper</th>
+<th>Contoh</th>
+<th>Hasil</th>
+<th>Penjelasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=</code></td>
+<td><code>x = y</code></td>
+<td><code>5</code></td>
+<td>Menetapkan nilai y ke x</td>
+</tr>
+<tr>
+<td><code>+=</code></td>
+<td><code>x += y</code></td>
+<td><code>15</code></td>
+<td>Menambahkan y ke x (x = x + y)</td>
+</tr>
+<tr>
+<td><code>-=</code></td>
+<td><code>x -= y</code></td>
+<td><code>5</code></td>
+<td>Mengurangi y dari x (x = x - y)</td>
+</tr>
+<tr>
+<td><code>*=</code></td>
+<td><code>x *= y</code></td>
+<td><code>50</code></td>
+<td>Mengalikan x dengan y (x = x * y)</td>
+</tr>
+<tr>
+<td><code>/=</code></td>
+<td><code>x /= y</code></td>
+<td><code>2</code></td>
+<td>Membagi x dengan y (x = x / y)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contoh-sehari-hari-">Contoh Sehari-hari:</h3>
+<p>Jika kamu memiliki 10 kue 🍰 dan kamu memutuskan untuk menambah 5 kue lagi, berapa jumlah kue yang kamu miliki?</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> x = <span class="hljs-number">10</span>; <span class="hljs-comment">// jumlah kue</span>
+<span class="hljs-keyword">let</span> y = <span class="hljs-number">5</span>; <span class="hljs-comment">// kue yang ditambahkan</span>
+x += y; <span class="hljs-comment">// menambahkan kue</span>
+console.<span class="hljs-built_in">log</span>(x); <span class="hljs-comment">// 15</span>
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li><p><strong><code>=</code></strong>: Seperti menulis nama di label.</p>
+</li>
+<li><p><strong><code>+=</code></strong>: Seperti menambahkan lebih banyak barang ke dalam tas.</p>
+</li>
+</ul>
+<hr>
+<h2 id="3-operator-perbandingan-">3. Operator Perbandingan ⚖️</h2>
+<p>Operator perbandingan digunakan untuk membandingkan dua nilai.</p>
+<table>
+<thead>
+<tr>
+<th>Oper</th>
+<th>Nama</th>
+<th>Contoh</th>
+<th>Hasil</th>
+<th>Penjelasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>Sama dengan</td>
+<td><code>x == 5</code></td>
+<td><code>true</code></td>
+<td>Memeriksa apakah x sama dengan 5</td>
+</tr>
+<tr>
+<td><code>===</code></td>
+<td>Identik</td>
+<td><code>x === 5</code></td>
+<td><code>true</code></td>
+<td>Memeriksa kesamaan nilai dan tipe</td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>Tidak sama dengan</td>
+<td><code>x != 8</code></td>
+<td><code>true</code></td>
+<td>Memeriksa apakah x tidak sama dengan 8</td>
+</tr>
+<tr>
+<td><code>!==</code></td>
+<td>Tidak identik</td>
+<td><code>x !== &#39;5&#39;</code></td>
+<td><code>true</code></td>
+<td>Memeriksa ketidaksamaan nilai atau tipe</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Lebih besar dari</td>
+<td><code>x &gt; 8</code></td>
+<td><code>false</code></td>
+<td>Memeriksa apakah x lebih besar dari 8</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Lebih kecil dari</td>
+<td><code>x &lt; 8</code></td>
+<td><code>true</code></td>
+<td>Memeriksa apakah x lebih kecil dari 8</td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>Lebih besar atau sama</td>
+<td><code>x &gt;= 5</code></td>
+<td><code>true</code></td>
+<td>Memeriksa apakah x lebih besar atau sama dengan 5</td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>Lebih kecil atau sama</td>
+<td><code>x &lt;= 8</code></td>
+<td><code>true</code></td>
+<td>Memeriksa apakah x lebih kecil atau sama dengan 8</td>
+</tr>
+</tbody>
+</table>
+<h3 id="contoh-sehari-hari-">Contoh Sehari-hari:</h3>
+<p>Misalkan kamu memiliki 5 kue dan ingin tahu apakah kamu memiliki lebih dari 3 kue.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> x = <span class="hljs-number">5</span>; <span class="hljs-comment">// jumlah kue</span>
+console.<span class="hljs-built_in">log</span>(x &gt; <span class="hljs-number">3</span>); <span class="hljs-comment">// true</span>
+</code></pre>
+<h3 id="tips-mengingat-">Tips Mengingat:</h3>
+<ul>
+<li><strong><code>==</code> dan <code>===</code></strong>: Ingat bahwa <code>===</code> lebih ketat, seperti memeriksa ID dan nama.</li>
+<li><strong><code>!=</code> dan <code>!==</code></strong>: Sama seperti di atas, tetapi untuk ketidaksamaan.</li>
+</ul>
+<hr>
+<h2 id="4-operator-logika-">4. Operator Logika 🔍</h2>
+<p>Operator logika digunakan untuk menggabungkan beberapa kondisi.</p>
+<p>Tentu! Berikut adalah perbaikan untuk format Markdown agar tabelnya dapat terlihat dengan baik:</p>
+<table>
+<thead>
+<tr>
+<th>Oper</th>
+<th>Nama</th>
+<th>Contoh</th>
+<th>Hasil</th>
+<th>Penjelasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;&amp;</code></td>
+<td>AND</td>
+<td><code>(x &lt; 10 &amp;&amp; y &gt; 1)</code></td>
+<td><code>true</code></td>
+<td>Keduanya harus benar</td>
+</tr>
+<tr>
+<td>`</td>
+<td></td>
+<td>`</td>
+<td>OR</td>
+<td>`(x === 5</td>
+<td></td>
+<td>y === 5)`</td>
+<td><code>false</code></td>
+<td>Salah satu harus benar</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>NOT</td>
+<td><code>!(x === y)</code></td>
+<td><code>true</code></td>
+<td>Membalikkan nilai boolean</td>
+</tr>
+</tbody>
+</table>
+<p>Dengan format di atas, tabel akan ditampilkan dengan rapi. Pastikan untuk menggunakan editor atau platform yang mendukung Markdown untuk melihat hasilnya.</p>
+<h3 id="contoh-sehari-hari-">Contoh Sehari-hari:</h3>
+<p>Jika kamu ingin pergi ke taman hanya jika cuaca cerah dan tidak ada pekerjaan rumah.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> <span class="hljs-attr">cuacaCerah</span> = <span class="hljs-literal">true</span>;
+<span class="hljs-keyword">let</span> <span class="hljs-attr">pekerjaanRumah</span> = <span class="hljs-literal">false</span>;
+console.log(cuacaCerah &amp;&amp; !pekerjaanRumah); // <span class="hljs-literal">true</span>
+</code></pre>
+<h3 id="tips-mengingat-">Tips Mengingat:</h3>
+<ul>
+<li><strong><code>&amp;&amp;</code></strong>: Bayangkan dua kunci yang harus diputar bersamaan untuk membuka pintu.</li>
+<li><strong><code>||</code></strong>: Bayangkan memilih antara dua makanan favorit.</li>
+</ul>
+<hr>
+<h2 id="5-operator-ternary-">5. Operator Ternary 🎭</h2>
+<p>Operator ini adalah cara singkat untuk menulis pernyataan if-else.</p>
+<h3 id="sintaks-">Sintaks:</h3>
+<pre><code class="lang-javascript">(condition) ? nilaiJikaBenar : <span class="hljs-type">nilaiJikaSalah</span>
+</code></pre>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> age = <span class="hljs-number">18</span>;
+<span class="hljs-keyword">let</span> status = (age &gt;= <span class="hljs-number">18</span>) ? <span class="hljs-string">'Dewasa'</span> : <span class="hljs-string">'Anak-anak'</span>;
+<span class="hljs-built_in">console</span>.log(status); <span class="hljs-comment">// Dewasa</span>
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li>Bayangkan memilih antara dua pilihan berdasarkan kondisi, seperti memilih antara dua jenis es krim 🍦.</li>
+</ul>
+<hr>
+<h2 id="6-operator-nullish-coalescing-">6. Operator Nullish Coalescing (??)</h2>
+<p>Operator ini mengembalikan nilai di sebelah kanan jika nilai di sebelah kiri adalah <code>null</code> atau <code>undefined</code>.</p>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> <span class="hljs-attr">name</span> = <span class="hljs-literal">null</span>;
+<span class="hljs-keyword">let</span> <span class="hljs-attr">text</span> = <span class="hljs-string">"missing"</span>;
+<span class="hljs-keyword">let</span> <span class="hljs-attr">result</span> = name ?? text;
+console.log(result); // missing
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li>Bayangkan mencari cadangan jika tidak ada yang tersedia.</li>
+</ul>
+<hr>
+<h2 id="7-operator-optional-chaining-">7. Operator Optional Chaining (?.)</h2>
+<p>Operator ini memungkinkan akses ke properti objek yang mungkin tidak ada tanpa menyebabkan error.</p>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> car = {type:<span class="hljs-string">"Fiat"</span>, model:<span class="hljs-string">"500"</span>, <span class="hljs-built_in">color</span>:<span class="hljs-string">"white"</span>};
+console.<span class="hljs-built_in">log</span>(car?.name); <span class="hljs-comment">// undefined</span>
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li>Bayangkan membuka kotak yang mungkin tidak ada isinya.</li>
+</ul>
+<hr>
+<h2 id="8-operator-bitwise-">8. Operator Bitwise 💻</h2>
+<p>Operator ini bekerja pada level bit dan digunakan untuk manipulasi bit.</p>
+<table>
+<thead>
+<tr>
+<th>Oper</th>
+<th>Nama</th>
+<th>Contoh</th>
+<th>Hasil</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&amp;</code></td>
+<td>AND</td>
+<td><code>x = 5 &amp; 1</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td>`</td>
+<td>`</td>
+<td>OR</td>
+<td>`x = 5</td>
+<td>1`</td>
+<td><code>5</code></td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>NOT</td>
+<td><code>x = ~5</code></td>
+<td><code>-6</code></td>
+</tr>
+<tr>
+<td><code>^</code></td>
+<td>XOR</td>
+<td><code>x = 5 ^ 1</code></td>
+<td><code>4</code></td>
+</tr>
+<tr>
+<td><code>&lt;&lt;</code></td>
+<td>Left shift</td>
+<td><code>x = 5 &lt;&lt; 1</code></td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>Right shift</td>
+<td><code>x = 5 &gt;&gt; 1</code></td>
+<td><code>2</code></td>
+</tr>
+<tr>
+<td><code>&gt;&gt;&gt;</code></td>
+<td>Unsigned right</td>
+<td><code>x = 5 &gt;&gt;&gt; 1</code></td>
+<td><code>2</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="contoh-sehari-hari">Contoh Sehari-hari</h3>
+<p>Bayangkan kamu memiliki dua lampu yang dinyalakan dan dimatikan berdasarkan kombinasi saklar. </p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">let</span> lampu1 = <span class="hljs-number">5</span>; <span class="hljs-comment">// 0101</span>
+<span class="hljs-keyword">let</span> lampu2 = <span class="hljs-number">1</span>; <span class="hljs-comment">// 0001</span>
+<span class="hljs-keyword">let</span> hasil = lampu1 &amp; lampu2; <span class="hljs-comment">// 0001</span>
+console.<span class="hljs-built_in">log</span>(hasil); <span class="hljs-comment">// 1 (lampu menyala)</span>
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li>Bayangkan setiap bit sebagai saklar yang bisa dinyalakan atau dimatikan.</li>
+</ul>
+<hr>
+<h2 id="9-operator-typeof-">9. Operator <code>typeof</code></h2>
+<p>Operator ini mengembalikan tipe dari sebuah variabel, objek, fungsi, atau ekspresi.</p>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-string">"John"</span>); <span class="hljs-comment">// string</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-number">3.14</span>); <span class="hljs-comment">// number</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// object</span>
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li>Bayangkan <code>typeof</code> sebagai label yang memberi tahu jenis barang di dalam kotak.</li>
+</ul>
+<hr>
+<h2 id="10-operator-delete-">10. Operator <code>delete</code></h2>
+<p>Operator ini digunakan untuk menghapus properti dari objek.</p>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript">const person = {
+  firstName: <span class="hljs-string">"John"</span>,
+  lastName: <span class="hljs-string">"Doe"</span>,
+  age: <span class="hljs-number">50</span>
+};
+<span class="hljs-keyword">delete</span> person.age;
+console.log(person); // { firstName: <span class="hljs-string">"John"</span>, lastName: <span class="hljs-string">"Doe"</span> }
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li>Bayangkan menghapus nama dari daftar tamu.</li>
+</ul>
+<hr>
+<h2 id="11-operator-spread-dan-rest-">11. Operator Spread dan Rest 🌌</h2>
+<p>Operator ini digunakan untuk mengembangkan iterable menjadi elemen individu atau mengumpulkan elemen menjadi array.</p>
+<h3 id="spread-operator-">Spread Operator (<code>...</code>)</h3>
+<p>Digunakan untuk menyalin atau menggabungkan array.</p>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> q1 = [<span class="hljs-string">"Jan"</span>, <span class="hljs-string">"Feb"</span>, <span class="hljs-string">"Mar"</span>];
+<span class="hljs-keyword">const</span> q2 = [<span class="hljs-string">"Apr"</span>, <span class="hljs-string">"May"</span>, <span class="hljs-string">"Jun"</span>];
+<span class="hljs-keyword">const</span> year = [...q1, ...q2];
+console.<span class="hljs-built_in">log</span>(year); // [<span class="hljs-string">"Jan"</span>, <span class="hljs-string">"Feb"</span>, <span class="hljs-string">"Mar"</span>, <span class="hljs-string">"Apr"</span>, <span class="hljs-string">"May"</span>, <span class="hljs-string">"Jun"</span>]
+</code></pre>
+<h3 id="rest-operator-">Rest Operator (<code>...</code>)</h3>
+<p>Digunakan untuk mengumpulkan argumen dalam fungsi menjadi array.</p>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sum</span><span class="hljs-params">(<span class="hljs-rest_arg">...args</span>)</span> </span>{
+    <span class="hljs-keyword">return</span> args.reduce((acc, curr) =&gt; acc + curr, <span class="hljs-number">0</span>);
+}
+console.log(sum(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)); <span class="hljs-comment">// 10</span>
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li><strong>Spread</strong>: Bayangkan menyebarkan biji ke tanah.</li>
+<li><strong>Rest</strong>: Bayangkan mengumpulkan semua mainan ke dalam satu kotak.</li>
+</ul>
+<hr>
+<h2 id="12-operator-in-">12. Operator <code>in</code></h2>
+<p>Operator ini mengembalikan true jika sebuah properti ada dalam objek, jika tidak false.</p>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> person = {<span class="hljs-attr">firstName</span>: <span class="hljs-string">"John"</span>, <span class="hljs-attr">lastName</span>: <span class="hljs-string">"Doe"</span>};
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"firstName"</span> <span class="hljs-keyword">in</span> person); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"age"</span> <span class="hljs-keyword">in</span> person); <span class="hljs-comment">// false</span>
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li>Bayangkan mencari nama di daftar tamu.</li>
+</ul>
+<hr>
+<h2 id="13-operator-instanceof-">13. Operator <code>instanceof</code></h2>
+<p>Operator ini mengembalikan true jika objek adalah instance dari constructor tertentu.</p>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> cars = [<span class="hljs-string">"Saab"</span>, <span class="hljs-string">"Volvo"</span>, <span class="hljs-string">"BMW"</span>];
+<span class="hljs-built_in">console</span>.log(cars <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>); <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(cars <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>); <span class="hljs-comment">// true</span>
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li>Bayangkan memeriksa apakah sebuah barang adalah bagian dari kategori tertentu.</li>
+</ul>
+<hr>
+<h2 id="14-operator-void-">14. Operator <code>void</code></h2>
+<p>Operator ini mengevaluasi ekspresi dan mengembalikan undefined. Sering digunakan untuk mendapatkan nilai undefined.</p>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"javascript:void(0);"</span>&gt;</span>Useless link<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li>Bayangkan mengabaikan hasil dari sebuah tindakan.</li>
+</ul>
+<hr>
+<h2 id="15-operator-delete-">15. Operator <code>delete</code></h2>
+<p>Digunakan untuk menghapus properti dari objek.</p>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript">const car = {type: <span class="hljs-string">"Fiat"</span>, model: <span class="hljs-string">"500"</span>, <span class="hljs-built_in">color</span>: <span class="hljs-string">"white"</span>};
+<span class="hljs-built_in">delete</span> car.<span class="hljs-built_in">color</span>;
+console.<span class="hljs-built_in">log</span>(car); // {type: <span class="hljs-string">"Fiat"</span>, model: <span class="hljs-string">"500"</span>}
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li>Bayangkan menghapus item dari rak.</li>
+</ul>
+<hr>
+<h2 id="16-operator-typeof-">16. Operator <code>typeof</code></h2>
+<p>Mengembalikan tipe dari variabel, objek, atau ekspresi.</p>
+<h3 id="contoh">Contoh</h3>
+<pre><code class="lang-javascript"><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-literal">null</span>); <span class="hljs-comment">// object</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]); <span class="hljs-comment">// object</span>
+</code></pre>
+<h3 id="tips-mengingat">Tips Mengingat</h3>
+<ul>
+<li>Bayangkan <code>typeof</code> sebagai label yang memberi tahu jenis barang di dalam kotak.</li>
+</ul>
+<hr>
+<h2 id="kesimpulan-">Kesimpulan 🎉</h2>
+<p>Dengan memahami berbagai operator ini, kamu dapat menulis kode JavaScript yang lebih efisien dan efektif. Teruslah berlatih dan eksplorasi lebih dalam! Jika ada pertanyaan atau butuh penjelasan lebih lanjut, jangan ragu untuk bertanya! 🌟</p>
+<h2 id="penutup-">Penutup 🎊</h2>
+<p>Dengan memahami berbagai operator ini, kamu dapat meningkatkan kemampuan pemrograman JavaScript-mu. Teruslah berlatih dan eksplorasi lebih dalam! 🌟 Jika ada pertanyaan atau butuh penjelasan lebih lanjut, jangan ragu untuk bertanya! 😊</p>
+</body></html>
