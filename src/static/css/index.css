@@ -1,156 +1,136 @@
+/* Global Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2f3640; /* Dark gray background */
+  color: #dfe6e9; /* Light text color for contrast */
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #ffffff; /* White text for title */
+  margin-top: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+h2 {
+  font-size: 1.8em;
+  color: #b2bec3; /* Soft light gray for subheading */
+  margin-top: 30px;
+  border-bottom: 2px solid #b2bec3;
+  padding-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+h2:hover {
+  color: #ffffff; /* White on hover */
+}
+
+/* List Styling */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 20px;
+  animation: slideIn 1s ease-out;
+}
+
+li {
+  background-color: #434b54; /* Medium gray for list items */
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+li:hover {
+  background-color: #2f3640; /* Darker gray on hover */
+  transform: translateY(-5px); /* Lift effect on hover */
+}
+
+button {
+  background-color: #a4b0be; /* Light gray for buttons */
+  color: #2f3640; /* Dark gray text for contrast */
+  border: none;
+  padding: 8px 15px;
+  font-size: 1.1em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #dfe6e9; /* Light gray on hover */
+  color: #2f3640; /* Dark text on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Smooth scrolling effect */
 html {
-    color: #1a1a1a;
-    background-color: #fdfdfd;
-  }
+  scroll-behavior: smooth;
+}
+
+/* Add spacing between sections */
+h2 + ul {
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   body {
-    margin: 0 auto;
-    max-width: 36em;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    hyphens: auto;
-    overflow-wrap: break-word;
-    text-rendering: optimizeLegibility;
-    font-kerning: normal;
+      padding: 10px;
   }
-  @media (max-width: 600px) {
-    body {
-      font-size: 0.9em;
-      padding: 12px;
-    }
-    h1 {
-      font-size: 1.8em;
-    }
+
+  h1 {
+      font-size: 2em;
   }
-  @media print {
-    html {
-      background-color: white;
-    }
-    body {
-      background-color: transparent;
-      color: black;
-      font-size: 12pt;
-    }
-    p, h2, h3 {
-      orphans: 3;
-      widows: 3;
-    }
-    h2, h3, h4 {
-      page-break-after: avoid;
-    }
+
+  h2 {
+      font-size: 1.6em;
   }
-  p {
-    margin: 1em 0;
+
+  li {
+      font-size: 1em;
   }
-  a {
-    color: #1a1a1a;
+
+  button {
+      font-size: 1em;
   }
-  a:visited {
-    color: #1a1a1a;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
   }
-  img {
-    max-width: 100%;
+  to {
+      opacity: 1;
+      transform: translateY(0);
   }
-  h1, h2, h3, h4, h5, h6 {
-    margin-top: 1.4em;
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateX(-20px);
   }
-  h5, h6 {
-    font-size: 1em;
-    font-style: italic;
+  to {
+      opacity: 1;
+      transform: translateX(0);
   }
-  h6 {
-    font-weight: normal;
-  }
-  ol, ul {
-    padding-left: 1.7em;
-    margin-top: 1em;
-  }
-  li > ol, li > ul {
-    margin-top: 0;
-  }
-  blockquote {
-    margin: 1em 0 1em 1.7em;
-    padding-left: 1em;
-    border-left: 2px solid #e6e6e6;
-    color: #606060;
-  }
-  code {
-    font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
-    font-size: 85%;
-    margin: 0;
-    hyphens: manual;
-  }
-  pre {
-    margin: 1em 0;
-    overflow: auto;
-  }
-  pre code {
-    padding: 0;
-    overflow: visible;
-    overflow-wrap: normal;
-  }
-  .sourceCode {
-   background-color: transparent;
-   overflow: visible;
-  }
-  hr {
-    background-color: #1a1a1a;
-    border: none;
-    height: 1px;
-    margin: 1em 0;
-  }
-  table {
-    margin: 1em 0;
-    border-collapse: collapse;
-    width: 100%;
-    overflow-x: auto;
-    display: block;
-    font-variant-numeric: lining-nums tabular-nums;
-  }
-  table caption {
-    margin-bottom: 0.75em;
-  }
-  tbody {
-    margin-top: 0.5em;
-    border-top: 1px solid #1a1a1a;
-    border-bottom: 1px solid #1a1a1a;
-  }
-  th {
-    border-top: 1px solid #1a1a1a;
-    padding: 0.25em 0.5em 0.25em 0.5em;
-  }
-  td {
-    padding: 0.125em 0.5em 0.25em 0.5em;
-  }
-  header {
-    margin-bottom: 4em;
-    text-align: center;
-  }
-  #TOC li {
-    list-style: none;
-  }
-  #TOC ul {
-    padding-left: 1.3em;
-  }
-  #TOC > ul {
-    padding-left: 0;
-  }
-  #TOC a:not(:hover) {
-    text-decoration: none;
-  }
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  div.columns{display: flex; gap: min(4vw, 1.5em);}
-  div.column{flex: auto; overflow-x: auto;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  /* The extra [class] is a hack that increases specificity enough to
-     override a similar rule in reveal.js */
-  ul.task-list[class]{list-style: none;}
-  ul.task-list li input[type="checkbox"] {
-    font-size: inherit;
-    width: 0.8em;
-    margin: 0 0.8em 0.2em -1.6em;
-    vertical-align: middle;
-  }
-  .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+}
