@@ -1,6 +1,6 @@
     function func_1_1() {
         alert("Semangat 🚀");
-        window.location.href="/src/Dasar-Dasar-JavaScript/convert/1.1-Variabel-da-data-type.html";
+        window.location.href="/src/Dasar-Dasar-JavaScript/convert/1.1-Variabel-dan-Deklarasi.html";
     }
     function func_1_2() {
         alert("Semangat 🚀");
@@ -182,20 +182,77 @@
         alert("Semangat 🚀");
         window.location.href="/src/Praktik-Lanjutan/13.3-Membuat-Proyek-Mini.md";
     }
-    // Fungsi untuk mengambil file Markdown dan mengonversinya ke HTML
-    function loadMarkdown(filePath) {
-        fetch(filePath)
-        .then(response => response.text())  // Mengambil konten file sebagai teks
-        .then(markdown => {
-            const htmlContent = marked(markdown);  // Mengonversi Markdown ke HTML
-            document.getElementById('content').innerHTML = htmlContent;  // Menampilkan HTML di dalam div
-        })
-        .catch(error => {
-            console.error('Error loading markdown file:', error);
-        });
-    }
-
-    // Memuat file Markdown saat halaman dimuat
-    window.onload = function() {
-        loadMarkdown('path/to/your/file.md');  // Ganti dengan path file MD Anda
-    };
+    particlesJS('particles-js', {
+        "particles": {
+            "number": {
+                "value": 50, /* Jumlah partikel */
+                "density": {
+                    "enable": true,
+                    "value_area": 800
+                }
+            },
+            "color": {
+                "value": "#ffffff" /* Warna partikel putih */
+            },
+            "shape": {
+                "type": "circle",
+                "stroke": {
+                    "width": 0,
+                    "color": "#000000"
+                },
+            },
+            "opacity": {
+                "value": 0.5,
+                "random": true,
+                "anim": {
+                    "enable": true,
+                    "speed": 1,
+                    "opacity_min": 0.1,
+                    "sync": false
+                }
+            },
+            "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                    "enable": true,
+                    "speed": 4,
+                    "size_min": 0.1,
+                    "sync": false
+                }
+            },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 3,
+                "direction": "none",
+                "random": true,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                    "enable": false
+                }
+            }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                },
+                "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                }
+            }
+        },
+        "retina_detect": true
+    });
